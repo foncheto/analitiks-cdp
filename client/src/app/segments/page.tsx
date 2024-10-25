@@ -16,6 +16,8 @@ import {
 import { Client, useGetClientsQuery } from "@/state/api"; // Assume this fetches clients
 import { useAppSelector } from "../redux";
 import Header from "@/components/Header";
+import { _DeepPartialObject } from "chart.js/types/helpers";
+import { CoreChartOptions, PluginChartOptions } from "chart.js";
 
 // Register necessary Chart.js components
 ChartJS.register(
@@ -63,12 +65,16 @@ const defaultDoughnutData = {
   ],
 };
 
-const chartOptions = {
+// Define chartOptions type for both "line" and "doughnut" charts
+const chartOptions: _DeepPartialObject<
+  CoreChartOptions<"line" | "doughnut"> &
+    PluginChartOptions<"line" | "doughnut">
+> = {
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
     legend: {
-      position: "top",
+      position: "top", // Correctly typed position for legend
     },
     title: {
       display: true,

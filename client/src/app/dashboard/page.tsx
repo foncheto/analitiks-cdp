@@ -12,7 +12,9 @@ import {
   Tooltip,
   Legend,
   ArcElement,
+  CoreChartOptions,
 } from "chart.js";
+import { _DeepPartialObject } from "chart.js/types/utils"; // Import for deep partial typing
 import Header from "@/components/Header"; // Assuming you have a reusable Header component
 
 // Register necessary Chart.js components
@@ -54,12 +56,13 @@ const lineData1 = {
   ],
 };
 
-const lineOptions = {
+// Cast the options to the appropriate type for Line charts
+const lineOptions: _DeepPartialObject<CoreChartOptions<"line">> = {
   responsive: true,
   maintainAspectRatio: false, // Ensures the chart adjusts to the container
   plugins: {
     legend: {
-      position: "top",
+      position: "top", // Correctly typed position for legend
     },
     title: {
       display: true,
@@ -89,12 +92,12 @@ const doughnutData = {
   ],
 };
 
-const doughnutOptions = {
+const doughnutOptions: _DeepPartialObject<any> = {
   responsive: true,
-  maintainAspectRatio: false, // Ensures the chart adjusts to the container
+  maintainAspectRatio: false,
   plugins: {
     legend: {
-      position: "top",
+      position: "top" as const, // Use "top" with a specific type
     },
     title: {
       display: true,
