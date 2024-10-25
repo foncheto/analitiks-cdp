@@ -1,0 +1,178 @@
+[
+  {
+    "companyName": "Punto 1",
+    "industry": "Unknown",
+    "email": "contact@punto1.com",
+    "phone": "+1-555-1234",
+    "address": "123 Industrial Road, Springfield",
+    "position": [-33.45, -70.6]
+  },
+  {
+    "companyName": "Punto 2",
+    "industry": "Unknown",
+    "email": "contact@punto2.com",
+    "phone": "+1-555-2345",
+    "address": "456 Software Ave, Tech City",
+    "position": [-33.45694, -70.64827]
+  },
+  {
+    "companyName": "Sawu Spa",
+    "industry": "Spa",
+    "email": "hello@sawu.com",
+    "phone": "+1-555-3456",
+    "address": "789 Eco Blvd, Greentown",
+    "position": [-23.6984012, -70.41755979999999]
+  },
+  {
+    "companyName": "Celulosa Arauco y Constitución S.A.",
+    "industry": "Manufacturing",
+    "email": "contact@celulosa.com",
+    "phone": "+1-555-4567",
+    "address": "123 Paper Mill, Springfield",
+    "position": [-33.4143239, -70.5925717]
+  },
+  {
+    "companyName": "Sierra Gorda SCM",
+    "industry": "Mining",
+    "email": "contact@sierragorda.com",
+    "phone": "+1-555-5678",
+    "address": "456 Mountain View, Tech City",
+    "position": [-33.4170982, -70.6016683]
+  },
+  {
+    "companyName": "SQM Salar SA",
+    "industry": "Mining",
+    "email": "contact@sqm.com",
+    "phone": "+1-555-6789",
+    "address": "789 Salt Flats, Greentown",
+    "position": [-33.4138241, -70.58659089999999]
+  },
+  {
+    "companyName": "Minera Centinela",
+    "industry": "Mining",
+    "email": "contact@minera.com",
+    "phone": "+1-555-7890",
+    "address": "123 Mine Rd, Springfield",
+    "position": [-33.4154079, -70.588381]
+  },
+  {
+    "companyName": "SQM Nitratos SA",
+    "industry": "Chemicals",
+    "email": "contact@sqmnitratos.com",
+    "phone": "+1-555-8901",
+    "address": "456 Nitrogen Rd, Tech City",
+    "position": [-33.4139525, -70.5865262]
+  },
+  {
+    "companyName": "Anglo American Sur",
+    "industry": "Mining",
+    "email": "contact@angloamerican.com",
+    "phone": "+1-555-9012",
+    "address": "789 Copper Blvd, Greentown",
+    "position": [-33.4133657, -70.60385409999999]
+  },
+  {
+    "companyName": "Colbún SA",
+    "industry": "Energy",
+    "email": "contact@colbun.com",
+    "phone": "+1-555-0123",
+    "address": "123 Power St, Springfield",
+    "position": [-33.4442571, -70.65648650000001]
+  },
+  {
+    "companyName": "ENAP Refinerías SA",
+    "industry": "Energy",
+    "email": "contact@enap.com",
+    "phone": "+1-555-1234",
+    "address": "456 Refinery Rd, Tech City",
+    "position": [-33.4177154, -70.59913551]
+  },
+  {
+    "companyName": "Compañía Minera Teck Quebrada Blanca S.A.",
+    "industry": "Mining",
+    "email": "contact@teck.com",
+    "phone": "+1-555-2345",
+    "address": "789 Mine Rd, Greentown",
+    "position": [-20.2113591, -70.1513837]
+  },
+  {
+    "companyName": "Coexca SA",
+    "industry": "Agriculture",
+    "email": "contact@coexca.com",
+    "phone": "+1-555-3456",
+    "address": "123 Farm Rd, Springfield",
+    "position": [-35.4413738, -71.6404244]
+  },
+  {
+    "companyName": "Orafti Chile SA",
+    "industry": "Agriculture",
+    "email": "contact@orafti.com",
+    "phone": "+1-555-4567",
+    "address": "456 Agriculture Blvd, Tech City",
+    "position": [-36.9771977, -72.1008877]
+  },
+  {
+    "companyName": "Voens SPA",
+    "industry": "Consulting",
+    "email": "contact@voens.com",
+    "phone": "+1-555-5678",
+    "address": "789 Consulting Ave, Greentown",
+    "position": [-33.2808048, -70.6443116]
+  },
+  {
+    "companyName": "Dacsi LTDA",
+    "industry": "Manufacturing",
+    "email": "contact@dacsi.com",
+    "phone": "+1-555-6789",
+    "address": "123 Factory Rd, Springfield",
+    "position": [-33.5474669, -70.6567974]
+  },
+  {
+    "companyName": "AES Gener Ventanas",
+    "industry": "Energy",
+    "email": "contact@aesgener.com",
+    "phone": "+1-555-7890",
+    "address": "456 Power Blvd, Tech City",
+    "position": [-32.7262218, -71.4128372]
+  },
+  {
+    "companyName": "Vigaflow SA",
+    "industry": "Engineering",
+    "email": "contact@vigaflow.com",
+    "phone": "+1-555-8901",
+    "address": "789 Engineering Rd, Greentown",
+    "position": [-33.2045451, -70.6759654]
+  },
+  {
+    "companyName": "ABControl LTDA",
+    "industry": "Manufacturing",
+    "email": "contact@abcontrol.com",
+    "phone": "+1-555-9012",
+    "address": "123 Control St, Springfield",
+    "position": [-33.4232752, -70.6084382]
+  },
+  {
+    "companyName": "Patagoniafresh SA Planta Molina",
+    "industry": "Food Processing",
+    "email": "contact@patagoniafresh.com",
+    "phone": "+1-555-0123",
+    "address": "456 Juice Rd, Tech City",
+    "position": [-35.0946253, -71.3165015]
+  },
+  {
+    "companyName": "Wellser SRL",
+    "industry": "Logistics",
+    "email": "contact@wellser.com",
+    "phone": "+1-555-1234",
+    "address": "789 Logistics Blvd, Greentown",
+    "position": [-17.798072, -63.1925079]
+  },
+  {
+    "companyName": "Patagoniafresh SA Planta San Fernando",
+    "industry": "Food Processing",
+    "email": "contact@patagoniafresh2.com",
+    "phone": "+1-555-2345",
+    "address": "123 Juice Ave, Springfield",
+    "position": [-34.5723843, -70.9722702]
+  }
+]

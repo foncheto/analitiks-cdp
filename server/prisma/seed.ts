@@ -32,6 +32,10 @@ async function main() {
     "attachment.json",
     "comment.json",
     "taskAssignment.json",
+    "client.json",
+    "sale.json",
+    "interaction.json",
+    "contact.json",
   ];
 
   await deleteAllData(orderedFileNames);

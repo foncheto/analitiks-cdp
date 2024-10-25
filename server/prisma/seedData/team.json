@@ -1,26 +1,26 @@
 [
   {
-    "teamName": "Quantum Innovations",
+    "teamName": "Equipo de Ventas",
     "productOwnerUserId": 11,
     "projectManagerUserId": 2
   },
   {
-    "teamName": "Nebula Research",
+    "teamName": "Equipo de Marketing",
     "productOwnerUserId": 13,
     "projectManagerUserId": 4
   },
   {
-    "teamName": "Orion Solutions",
+    "teamName": "Equipo Soporte TI",
     "productOwnerUserId": 15,
     "projectManagerUserId": 6
   },
   {
-    "teamName": "Krypton Developments",
+    "teamName": "Equipo de Tecnología",
     "productOwnerUserId": 17,
     "projectManagerUserId": 8
   },
   {
-    "teamName": "Zenith Technologies",
+    "teamName": "Equipo de Recursos Humanos",
     "productOwnerUserId": 19,
     "projectManagerUserId": 10
   }

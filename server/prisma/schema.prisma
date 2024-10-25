@@ -1,8 +1,4 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+// Updated Prisma schema for a Customer Data Platform with integrated AI chatbot, client, and CRM data.
 
 generator client {
   provider      = "prisma-client-js"
@@ -27,6 +23,8 @@ model User {
   attachments     Attachment[]
   comments        Comment[]
   team            Team?            @relation(fields: [teamId], references: [id])
+  interactions    Interaction[]
+  contacts        Contact[]
 }
 
 model Team {
@@ -106,4 +104,57 @@ model Comment {
 
   task Task @relation(fields: [taskId], references: [id])
   user User @relation(fields: [userId], references: [userId])
+}
+
+model Client {
+  id           Int        @id @default(autoincrement())
+  companyName  String
+  industry     String?
+  email        String     @unique
+  phone        String?
+  address      String?
+  position     Float[]    // Position: array of latitude and longitude
+  contacts     Contact[]
+  sales        Sale[]
+  interactions Interaction[]
+}
+
+model Contact {
+  id       Int    @id @default(autoincrement())
+  name     String
+  email    String @unique
+  phone    String?
+  userId   Int?
+  clientId Int
+
+  user   User?  @relation(fields: [userId], references: [userId])
+  client Client @relation(fields: [clientId], references: [id])
+
+  Interaction Interaction[]
+}
+
+model Sale {
+  id          Int      @id @default(autoincrement())
+  amount      Float
+  date        DateTime
+  description String?
+  clientId    Int
+
+  client Client @relation(fields: [clientId], references: [id])
+}
+
+model Interaction {
+  id           Int      @id @default(autoincrement())
+  type         String   // e.g., "chat", "email", "call"
+  date         DateTime
+  notes        String?
+  userId       Int?
+  clientId     Int?
+  contactId    Int?
+  email        String?
+  phoneNumber  String?
+
+  user    User?    @relation(fields: [userId], references: [userId])
+  client  Client?  @relation(fields: [clientId], references: [id])
+  contact Contact? @relation(fields: [contactId], references: [id])
 }

@@ -74,6 +74,44 @@ export interface Team {
   projectManagerUserId?: number;
 }
 
+// New interfaces for Client, Sale, Contact, and Interaction
+export interface Client {
+  id: number;
+  companyName: string;
+  industry?: string;
+  email: string;
+  phone?: string;
+  address?: string;
+  position?: [number, number];
+}
+
+export interface Sale {
+  id: number;
+  amount: number;
+  date: string;
+  description?: string;
+  clientId: number;
+}
+
+export interface Contact {
+  id: number;
+  name: string;
+  email: string;
+  phone?: string;
+  clientId: number;
+}
+
+export interface Interaction {
+  id: number;
+  type: string;
+  date: string;
+  notes?: string;
+  clientId?: number;
+  contactId?: number;
+  email?: string;
+  phoneNumber?: string;
+}
+
 export const api = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL,
@@ -87,7 +125,16 @@ export const api = createApi({
     },
   }),
   reducerPath: "api",
-  tagTypes: ["Projects", "Tasks", "Users", "Teams"],
+  tagTypes: [
+    "Projects",
+    "Tasks",
+    "Users",
+    "Teams",
+    "Clients",
+    "Sales",
+    "Contacts",
+    "Interactions",
+  ],
   endpoints: (build) => ({
     getAuthUser: build.query({
       queryFn: async (_, _queryApi, _extraoptions, fetchWithBQ) => {
@@ -162,6 +209,80 @@ export const api = createApi({
     search: build.query<SearchResults, string>({
       query: (query) => `search?query=${query}`,
     }),
+    // New endpoints for Client, Sale, Contact, and Interaction
+    getClients: build.query<Client[], void>({
+      query: () => "clients",
+      providesTags: ["Clients"],
+    }),
+    getClient: build.query<Client, number>({
+      query: (clientId) => `clients/${clientId}`,
+      providesTags: (result, error, clientId) => [
+        { type: "Clients", id: clientId },
+      ],
+    }),
+    createClient: build.mutation<Client, Partial<Client>>({
+      query: (client) => ({
+        url: "clients",
+        method: "POST",
+        body: client,
+      }),
+      invalidatesTags: ["Clients"],
+    }),
+
+    getSales: build.query<Sale[], void>({
+      query: () => "sales",
+      providesTags: ["Sales"],
+    }),
+    getSale: build.query<Sale, number>({
+      query: (saleId) => `sales/${saleId}`,
+      providesTags: (result, error, saleId) => [{ type: "Sales", id: saleId }],
+    }),
+    createSale: build.mutation<Sale, Partial<Sale>>({
+      query: (sale) => ({
+        url: "sales",
+        method: "POST",
+        body: sale,
+      }),
+      invalidatesTags: ["Sales"],
+    }),
+
+    getContacts: build.query<Contact[], void>({
+      query: () => "contacts",
+      providesTags: ["Contacts"],
+    }),
+    getContact: build.query<Contact, number>({
+      query: (contactId) => `contacts/${contactId}`,
+      providesTags: (result, error, contactId) => [
+        { type: "Contacts", id: contactId },
+      ],
+    }),
+    createContact: build.mutation<Contact, Partial<Contact>>({
+      query: (contact) => ({
+        url: "contacts",
+        method: "POST",
+        body: contact,
+      }),
+      invalidatesTags: ["Contacts"],
+    }),
+
+    getInteractions: build.query<Interaction[], void>({
+      query: () => "interactions",
+      providesTags: ["Interactions"],
+    }),
+    getInteraction: build.query<Interaction, number>({
+      query: (interactionId) => `interactions/${interactionId}`,
+      providesTags: (result, error, interactionId) => [
+        { type: "Interactions", id: interactionId },
+      ],
+    }),
+    createInteraction: build.mutation<Interaction, Partial<Interaction>>({
+      query: (interaction) => ({
+        url: "interactions",
+        method: "POST",
+        body: interaction,
+      }),
+      invalidatesTags: ["Interactions"],
+    }),
   }),
 });
 
@@ -176,4 +297,17 @@ export const {
   useGetTeamsQuery,
   useGetTasksByUserQuery,
   useGetAuthUserQuery,
+  // New hooks for Client, Sale, Contact, and Interaction
+  useGetClientsQuery,
+  useGetClientQuery,
+  useCreateClientMutation,
+  useGetSalesQuery,
+  useGetSaleQuery,
+  useCreateSaleMutation,
+  useGetContactsQuery,
+  useGetContactQuery,
+  useCreateContactMutation,
+  useGetInteractionsQuery,
+  useGetInteractionQuery,
+  useCreateInteractionMutation,
 } = api;

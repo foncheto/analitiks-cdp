@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "type": "chat",
+    "date": "2023-09-01T10:00:00Z",
+    "notes": "Discussed subscription options",
+    "userId": 1,
+    "clientId": 1
+  },
+  {
+    "id": 2,
+    "type": "call",
+    "date": "2023-09-10T15:00:00Z",
+    "notes": "Talked about upcoming product launch",
+    "userId": 2,
+    "clientId": 2
+  }
+]

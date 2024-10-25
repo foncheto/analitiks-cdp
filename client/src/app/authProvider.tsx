@@ -17,25 +17,25 @@ const formFields = {
   signUp: {
     username: {
       order: 1,
-      placeholder: "Choose a username",
+      placeholder: "Elige un nombre de usuario",
       label: "Username",
       inputProps: { required: true },
     },
     email: {
       order: 1,
-      placeholder: "Enter your email address",
+      placeholder: "Ingresa tu email",
       label: "Email",
       inputProps: { type: "email", required: true },
     },
     password: {
       order: 3,
-      placeholder: "Enter your password",
+      placeholder: "Ingresa tu contraseña",
       label: "Password",
       inputProps: { type: "password", required: true },
     },
     confirm_password: {
       order: 4,
-      placeholder: "Confirm your password",
+      placeholder: "Confirma tu contraseña",
       label: "Confirm Password",
       inputProps: { type: "password", required: true },
     },
@@ -51,7 +51,7 @@ const AuthProvider = ({ children }: any) => {
             <div>{children}</div>
           ) : (
             <div>
-              <h1>Please sign in below:</h1>
+              <h1>Por favor ingresa acá abajo:</h1>
             </div>
           )
         }
