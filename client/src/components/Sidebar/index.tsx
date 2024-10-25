@@ -8,16 +8,19 @@ import {
   AlertCircle,
   AlertOctagon,
   AlertTriangle,
+  Banknote,
   Briefcase,
+  ChartArea,
   ChevronDown,
   ChevronUp,
   Home,
   Layers3,
   LockIcon,
   LucideIcon,
-  Search,
+  Pin,
   Settings,
   ShieldAlert,
+  Split,
   User,
   Users,
   X,
@@ -92,12 +95,14 @@ const Sidebar = () => {
         </div>
         {/* NAVBAR LINKS */}
         <nav className="z-10 w-full">
-          <SidebarLink icon={Home} label="Home" href="/" />
-          <SidebarLink icon={Briefcase} label="Timeline" href="/timeline" />
-          <SidebarLink icon={Search} label="Search" href="/search" />
-          <SidebarLink icon={Settings} label="Settings" href="/settings" />
-          <SidebarLink icon={User} label="Users" href="/users" />
-          <SidebarLink icon={Users} label="Teams" href="/teams" />
+          <SidebarLink icon={Home} label="Inicio" href="/" />
+          <SidebarLink icon={Briefcase} label="Clientes" href="/clients" />
+          <SidebarLink icon={ChartArea} label="Dashboard" href="/dashboard" />
+          <SidebarLink icon={Split} label="Segmentos" href="/segments" />
+          <SidebarLink icon={Pin} label="Ubicaciones" href="/locations" />
+          <SidebarLink icon={User} label="Usuarios" href="/users" />
+          <SidebarLink icon={Users} label="Equipos" href="/teams" />
+          <SidebarLink icon={Settings} label="Configuración" href="/settings" />
         </nav>
 
         {/* PROJECTS LINKS */}
@@ -105,7 +110,7 @@ const Sidebar = () => {
           onClick={() => setShowProjects((prev) => !prev)}
           className="flex w-full items-center justify-between px-8 py-3 text-gray-500"
         >
-          <span className="">Projects</span>
+          <span className="">Proyectos</span>
           {showProjects ? (
             <ChevronUp className="h-5 w-5" />
           ) : (
@@ -128,7 +133,7 @@ const Sidebar = () => {
           onClick={() => setShowPriority((prev) => !prev)}
           className="flex w-full items-center justify-between px-8 py-3 text-gray-500"
         >
-          <span className="">Priority</span>
+          <span className="">Prioridad</span>
           {showPriority ? (
             <ChevronUp className="h-5 w-5" />
           ) : (
@@ -139,20 +144,24 @@ const Sidebar = () => {
           <>
             <SidebarLink
               icon={AlertCircle}
-              label="Urgent"
+              label="Urgente"
               href="/priority/urgent"
             />
             <SidebarLink
               icon={ShieldAlert}
-              label="High"
+              label="Alta"
               href="/priority/high"
             />
             <SidebarLink
               icon={AlertTriangle}
-              label="Medium"
+              label="Media"
               href="/priority/medium"
             />
-            <SidebarLink icon={AlertOctagon} label="Low" href="/priority/low" />
+            <SidebarLink
+              icon={AlertOctagon}
+              label="Baja"
+              href="/priority/low"
+            />
             <SidebarLink
               icon={Layers3}
               label="Backlog"

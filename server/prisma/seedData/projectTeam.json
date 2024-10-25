@@ -13,10 +13,5 @@
   { "id": 12, "teamId": 2, "projectId": 3 },
   { "id": 13, "teamId": 3, "projectId": 3 },
   { "id": 14, "teamId": 4, "projectId": 3 },
-  { "id": 15, "teamId": 5, "projectId": 3 },
-  { "id": 16, "teamId": 1, "projectId": 4 },
-  { "id": 17, "teamId": 2, "projectId": 4 },
-  { "id": 18, "teamId": 3, "projectId": 4 },
-  { "id": 19, "teamId": 4, "projectId": 4 },
-  { "id": 20, "teamId": 5, "projectId": 4 }
+  { "id": 15, "teamId": 5, "projectId": 3 }
 ]
