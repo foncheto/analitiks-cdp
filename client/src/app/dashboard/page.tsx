@@ -12,10 +12,10 @@ import {
   Tooltip,
   Legend,
   ArcElement,
-  CoreChartOptions,
+  ChartData,
+  ChartOptions,
 } from "chart.js";
-import { _DeepPartialObject } from "chart.js/types/utils"; // Import for deep partial typing
-import Header from "@/components/Header"; // Assuming you have a reusable Header component
+import Header from "@/components/Header";
 
 // Register necessary Chart.js components
 ChartJS.register(
@@ -29,8 +29,8 @@ ChartJS.register(
   ArcElement,
 );
 
-// Line chart data and options
-const lineData = {
+// Line chart data with proper typing
+const lineData: ChartData<"line"> = {
   labels: ["January", "February", "March", "April", "May"],
   datasets: [
     {
@@ -43,7 +43,7 @@ const lineData = {
   ],
 };
 
-const lineData1 = {
+const lineData1: ChartData<"line"> = {
   labels: ["2019", "2020", "2021", "2022", "2023", "2024"],
   datasets: [
     {
@@ -56,13 +56,13 @@ const lineData1 = {
   ],
 };
 
-// Cast the options to the appropriate type for Line charts
-const lineOptions: _DeepPartialObject<CoreChartOptions<"line">> = {
+// Line chart options with proper typing
+const lineOptions: ChartOptions<"line"> = {
   responsive: true,
-  maintainAspectRatio: false, // Ensures the chart adjusts to the container
+  maintainAspectRatio: false,
   plugins: {
     legend: {
-      position: "top", // Correctly typed position for legend
+      position: "top" as const,
     },
     title: {
       display: true,
@@ -71,8 +71,8 @@ const lineOptions: _DeepPartialObject<CoreChartOptions<"line">> = {
   },
 };
 
-// Doughnut chart data and options
-const doughnutData = {
+// Doughnut chart data with proper typing
+const doughnutData: ChartData<"doughnut"> = {
   labels: ["MINERA", "ALIMENTOS", "AGUAS"],
   datasets: [
     {
@@ -92,12 +92,13 @@ const doughnutData = {
   ],
 };
 
-const doughnutOptions: _DeepPartialObject<any> = {
+// Doughnut chart options with proper typing
+const doughnutOptions: ChartOptions<"doughnut"> = {
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
     legend: {
-      position: "top" as const, // Use "top" with a specific type
+      position: "top" as const,
     },
     title: {
       display: true,
@@ -106,13 +107,12 @@ const doughnutOptions: _DeepPartialObject<any> = {
   },
 };
 
-// SalesDashboard component
+// Dashboard component
 const Dashboard: React.FC = () => {
   return (
     <div className="dashboard-wrapper">
       <Header name="Analitiks SPA - Business Sales Dashboard" />
       <div className="dashboard-grid">
-        {/* Line Chart 1 */}
         <div className="chart-card">
           <h3 className="chart-title">Ventas mensuales Año actual</h3>
           <div className="chart-container">
@@ -120,7 +120,6 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
 
-        {/* Line Chart 2 */}
         <div className="chart-card">
           <h3 className="chart-title">Ventas anuales</h3>
           <div className="chart-container">
@@ -128,7 +127,6 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
 
-        {/* Doughnut Chart */}
         <div className="chart-card">
           <h3 className="chart-title">Distribución de Ventas</h3>
           <div className="chart-container">

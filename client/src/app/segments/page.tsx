@@ -12,12 +12,12 @@ import {
   Tooltip,
   Legend,
   ArcElement,
+  ChartData,
+  ChartOptions,
 } from "chart.js";
-import { Client, useGetClientsQuery } from "@/state/api"; // Assume this fetches clients
+import { Client, useGetClientsQuery } from "@/state/api";
 import { useAppSelector } from "../redux";
 import Header from "@/components/Header";
-import { _DeepPartialObject } from "chart.js/types/helpers";
-import { CoreChartOptions, PluginChartOptions } from "chart.js";
 
 // Register necessary Chart.js components
 ChartJS.register(
@@ -31,8 +31,8 @@ ChartJS.register(
   ArcElement,
 );
 
-// Default data for charts
-const defaultLineData = {
+// Define types for the chart data and options
+const defaultLineData: ChartData<"line"> = {
   labels: ["January", "February", "March", "April", "May"],
   datasets: [
     {
@@ -45,7 +45,7 @@ const defaultLineData = {
   ],
 };
 
-const defaultDoughnutData = {
+const defaultDoughnutData: ChartData<"doughnut"> = {
   labels: ["MINERA", "ALIMENTOS", "AGUAS"],
   datasets: [
     {
@@ -65,16 +65,12 @@ const defaultDoughnutData = {
   ],
 };
 
-// Define chartOptions type for both "line" and "doughnut" charts
-const chartOptions: _DeepPartialObject<
-  CoreChartOptions<"line" | "doughnut"> &
-    PluginChartOptions<"line" | "doughnut">
-> = {
+const lineChartOptions: ChartOptions<"line"> = {
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
     legend: {
-      position: "top", // Correctly typed position for legend
+      position: "top" as const,
     },
     title: {
       display: true,
@@ -83,11 +79,24 @@ const chartOptions: _DeepPartialObject<
   },
 };
 
-// Segments View Component
+const doughnutChartOptions: ChartOptions<"doughnut"> = {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      position: "top" as const,
+    },
+    title: {
+      display: true,
+      text: "Sales Chart",
+    },
+  },
+};
+
 const Segments = () => {
-  const { data: clients, isLoading, isError } = useGetClientsQuery(); // Fetch clients from API
+  const { data: clients, isLoading, isError } = useGetClientsQuery();
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
-  const [selectedIndustry, setSelectedIndustry] = useState("ALL"); // Default to all industries
+  const [selectedIndustry, setSelectedIndustry] = useState("ALL");
   const [filteredClients, setFilteredClients] = useState<Client[]>([]);
 
   useEffect(() => {
@@ -106,7 +115,6 @@ const Segments = () => {
   if (isLoading) return <div>Loading clients...</div>;
   if (isError || !clients) return <div>Error fetching clients</div>;
 
-  // Create a list of unique industries for the filter dropdown
   const industries = Array.from(
     new Set(clients.map((client) => client.industry)),
   );
@@ -115,7 +123,6 @@ const Segments = () => {
     <div className="flex w-full flex-col p-8">
       <Header name="Client Segments - Industry View" />
 
-      {/* Filter Dropdown for Industry */}
       <div className="mb-6 flex">
         <label htmlFor="industryFilter" className="mr-4">
           Filter by Industry:
@@ -134,9 +141,7 @@ const Segments = () => {
         </select>
       </div>
 
-      {/* Dashboard for Selected Industry */}
       <div className="dashboard-grid">
-        {/* Line Chart */}
         <div className="chart-card">
           <h3 className="chart-title">
             {selectedIndustry === "ALL"
@@ -144,15 +149,17 @@ const Segments = () => {
               : `Sales Data - ${selectedIndustry}`}
           </h3>
           <div className="chart-container">
-            <Line data={defaultLineData} options={chartOptions} />
+            <Line data={defaultLineData} options={lineChartOptions} />
           </div>
         </div>
 
-        {/* Doughnut Chart */}
         <div className="chart-card">
           <h3 className="chart-title">Sales Distribution by Industry</h3>
           <div className="chart-container">
-            <Doughnut data={defaultDoughnutData} options={chartOptions} />
+            <Doughnut
+              data={defaultDoughnutData}
+              options={doughnutChartOptions}
+            />
           </div>
         </div>
       </div>
