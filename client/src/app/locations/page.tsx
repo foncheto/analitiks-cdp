@@ -21,7 +21,7 @@ const Locations = () => {
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
 
   if (isLoading) return <div>Loading map...</div>;
-  if (isError || !clients) return <div>Error fetching clients' locations</div>;
+  if (isError || !clients) return <div>Error fetching clients locations</div>;
 
   return (
     <div className="flex w-full flex-col p-8">
