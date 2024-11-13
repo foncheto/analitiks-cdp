@@ -21,6 +21,7 @@ const Locations = () => {
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
   const [isClient, setIsClient] = useState(false);
 
+  // Only set `isClient` to true once the component mounts on the client side
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -34,7 +35,7 @@ const Locations = () => {
       {isClient && (
         <div style={{ height: "80vh", width: "100%" }}>
           <MapContainer
-            center={[-33.4143239, -70.5925717]}
+            center={[-33.4143239, -70.5925717]} // Default map center
             zoom={8}
             style={{ height: "100%", width: "100%" }}
           >
@@ -60,10 +61,5 @@ const Locations = () => {
     </div>
   );
 };
-
-// This disables static generation and forces server-side rendering for this page
-export async function getServerSideProps() {
-  return { props: {} };
-}
 
 export default Locations;
