@@ -5,10 +5,13 @@ import { formatISO } from "date-fns";
 
 type Props = {
   isOpen: boolean;
+
   onClose: () => void;
+
+  clientId: number | null;
 };
 
-const ModalNewProject = ({ isOpen, onClose }: Props) => {
+const ModalNewProject = ({ isOpen, onClose, clientId }: Props) => {
   const [createProject, { isLoading }] = useCreateProjectMutation();
   const [projectName, setProjectName] = useState("");
   const [description, setDescription] = useState("");
@@ -25,12 +28,18 @@ const ModalNewProject = ({ isOpen, onClose }: Props) => {
       representation: "complete",
     });
 
-    await createProject({
-      name: projectName,
-      description,
-      startDate: formattedStartDate,
-      endDate: formattedEndDate,
-    });
+    try {
+      await createProject({
+        name: projectName,
+        description,
+        startDate: formattedStartDate,
+        endDate: formattedEndDate,
+        clientId: clientId ?? null, // Ensure clientId is passed
+      });
+      onClose(); // Close modal on success
+    } catch (error) {
+      console.error("Failed to create project:", error); // Log error on failure
+    }
   };
 
   const isFormValid = () => {

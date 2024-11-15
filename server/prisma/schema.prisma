@@ -37,13 +37,17 @@ model Team {
 }
 
 model Project {
-  id           Int           @id @default(autoincrement())
+  id           Int      @id @default(autoincrement())
   name         String
   description  String?
   startDate    DateTime?
   endDate      DateTime?
+  clientId     Int      // Foreign key to associate project with a client
+
   tasks        Task[]
   projectTeams ProjectTeam[]
+
+  client       Client   @relation(fields: [clientId], references: [id]) // Relates Project to Client
 }
 
 model ProjectTeam {
@@ -117,6 +121,7 @@ model Client {
   contacts     Contact[]
   sales        Sale[]
   interactions Interaction[]
+  projects     Project[]
 }
 
 model Contact {
