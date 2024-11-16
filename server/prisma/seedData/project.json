@@ -1,23 +1,23 @@
 [
   {
-    "id": 1,
-    "name": "CODELCO",
+    "name": "CODELCO Expansion",
     "description": "Implementación de sistemas avanzados de monitoreo en tiempo real en la planta de CODELCO, incluyendo sensores de pH y turbidez para optimizar el proceso de lixiviación y flotación.",
     "startDate": "2023-01-01T00:00:00Z",
-    "endDate": "2023-12-31T00:00:00Z"
+    "endDate": "2023-12-31T00:00:00Z",
+    "clientId": 1
   },
   {
-    "id": 2,
-    "name": "Minera Centinela",
+    "name": "Minera Centinela Revision",
     "description": "Desarrollo de sistemas de navegación y monitoreo avanzados para mejorar la eficiencia y seguridad en los entornos de extracción y procesamiento de minerales.",
     "startDate": "2023-02-01T00:00:00Z",
-    "endDate": "2023-10-15T00:00:00Z"
+    "endDate": "2023-10-15T00:00:00Z",
+    "clientId": 7
   },
   {
-    "id": 3,
     "name": "Sierra Gorda SCM",
     "description": "Proyecto enfocado en aumentar el uso de energía renovable, integrando sistemas de análisis en línea para la gestión eficiente del agua y la energía en procesos mineros.",
     "startDate": "2023-03-05T00:00:00Z",
-    "endDate": "2024-03-05T00:00:00Z"
+    "endDate": "2024-03-05T00:00:00Z",
+    "clientId": 5
   }
 ]

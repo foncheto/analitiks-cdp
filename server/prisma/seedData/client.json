@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "companyName": "Punto 1",
     "industry": "Unknown",
     "email": "contact@punto1.com",
@@ -8,6 +9,7 @@
     "position": [-33.45, -70.6]
   },
   {
+    "id": 2,
     "companyName": "Punto 2",
     "industry": "Unknown",
     "email": "contact@punto2.com",
@@ -16,6 +18,7 @@
     "position": [-33.45694, -70.64827]
   },
   {
+    "id": 3,
     "companyName": "Sawu Spa",
     "industry": "Spa",
     "email": "hello@sawu.com",
@@ -24,6 +27,7 @@
     "position": [-23.6984012, -70.41755979999999]
   },
   {
+    "id": 4,
     "companyName": "Celulosa Arauco y Constitución S.A.",
     "industry": "Manufacturing",
     "email": "contact@celulosa.com",
@@ -32,6 +36,7 @@
     "position": [-33.4143239, -70.5925717]
   },
   {
+    "id": 5,
     "companyName": "Sierra Gorda SCM",
     "industry": "Mining",
     "email": "contact@sierragorda.com",
@@ -40,6 +45,7 @@
     "position": [-33.4170982, -70.6016683]
   },
   {
+    "id": 6,
     "companyName": "SQM Salar SA",
     "industry": "Mining",
     "email": "contact@sqm.com",
@@ -48,6 +54,7 @@
     "position": [-33.4138241, -70.58659089999999]
   },
   {
+    "id": 7,
     "companyName": "Minera Centinela",
     "industry": "Mining",
     "email": "contact@minera.com",
@@ -56,6 +63,7 @@
     "position": [-33.4154079, -70.588381]
   },
   {
+    "id": 8,
     "companyName": "SQM Nitratos SA",
     "industry": "Chemicals",
     "email": "contact@sqmnitratos.com",
@@ -64,6 +72,7 @@
     "position": [-33.4139525, -70.5865262]
   },
   {
+    "id": 9,
     "companyName": "Anglo American Sur",
     "industry": "Mining",
     "email": "contact@angloamerican.com",
@@ -72,6 +81,7 @@
     "position": [-33.4133657, -70.60385409999999]
   },
   {
+    "id": 10,
     "companyName": "Colbún SA",
     "industry": "Energy",
     "email": "contact@colbun.com",
@@ -80,6 +90,7 @@
     "position": [-33.4442571, -70.65648650000001]
   },
   {
+    "id": 11,
     "companyName": "ENAP Refinerías SA",
     "industry": "Energy",
     "email": "contact@enap.com",
@@ -88,6 +99,7 @@
     "position": [-33.4177154, -70.59913551]
   },
   {
+    "id": 12,
     "companyName": "Compañía Minera Teck Quebrada Blanca S.A.",
     "industry": "Mining",
     "email": "contact@teck.com",
@@ -96,6 +108,7 @@
     "position": [-20.2113591, -70.1513837]
   },
   {
+    "id": 13,
     "companyName": "Coexca SA",
     "industry": "Agriculture",
     "email": "contact@coexca.com",
@@ -104,6 +117,7 @@
     "position": [-35.4413738, -71.6404244]
   },
   {
+    "id": 14,
     "companyName": "Orafti Chile SA",
     "industry": "Agriculture",
     "email": "contact@orafti.com",
@@ -112,6 +126,7 @@
     "position": [-36.9771977, -72.1008877]
   },
   {
+    "id": 15,
     "companyName": "Voens SPA",
     "industry": "Consulting",
     "email": "contact@voens.com",
@@ -120,6 +135,7 @@
     "position": [-33.2808048, -70.6443116]
   },
   {
+    "id": 16,
     "companyName": "Dacsi LTDA",
     "industry": "Manufacturing",
     "email": "contact@dacsi.com",
@@ -128,6 +144,7 @@
     "position": [-33.5474669, -70.6567974]
   },
   {
+    "id": 17,
     "companyName": "AES Gener Ventanas",
     "industry": "Energy",
     "email": "contact@aesgener.com",
@@ -136,6 +153,7 @@
     "position": [-32.7262218, -71.4128372]
   },
   {
+    "id": 18,
     "companyName": "Vigaflow SA",
     "industry": "Engineering",
     "email": "contact@vigaflow.com",
@@ -144,6 +162,7 @@
     "position": [-33.2045451, -70.6759654]
   },
   {
+    "id": 19,
     "companyName": "ABControl LTDA",
     "industry": "Manufacturing",
     "email": "contact@abcontrol.com",
@@ -152,6 +171,7 @@
     "position": [-33.4232752, -70.6084382]
   },
   {
+    "id": 20,
     "companyName": "Patagoniafresh SA Planta Molina",
     "industry": "Food Processing",
     "email": "contact@patagoniafresh.com",
@@ -160,6 +180,7 @@
     "position": [-35.0946253, -71.3165015]
   },
   {
+    "id": 21,
     "companyName": "Wellser SRL",
     "industry": "Logistics",
     "email": "contact@wellser.com",
@@ -168,6 +189,7 @@
     "position": [-17.798072, -63.1925079]
   },
   {
+    "id": 22,
     "companyName": "Patagoniafresh SA Planta San Fernando",
     "industry": "Food Processing",
     "email": "contact@patagoniafresh2.com",

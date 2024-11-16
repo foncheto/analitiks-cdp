@@ -3,10 +3,16 @@ import { fetchAuthSession, getCurrentUser } from "aws-amplify/auth";
 
 export interface Project {
   id: number;
+
   name: string;
+
   description?: string;
+
   startDate?: string;
+
   endDate?: string;
+
+  clientId: number | null;
 }
 
 export enum Priority {
@@ -283,6 +289,12 @@ export const api = createApi({
       }),
       invalidatesTags: ["Interactions"],
     }),
+    getProjectsByClientId: build.query<Project[], number>({
+      query: (clientId) => `projects?clientId=${clientId}`, // Fetch projects by clientId
+      providesTags: (result, error, clientId) => [
+        { type: "Projects", id: clientId },
+      ],
+    }),
   }),
 });
 
@@ -310,4 +322,5 @@ export const {
   useGetInteractionsQuery,
   useGetInteractionQuery,
   useCreateInteractionMutation,
+  useGetProjectsByClientIdQuery,
 } = api;

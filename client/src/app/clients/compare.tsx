@@ -73,10 +73,8 @@ const Clients = () => {
     setSelectedClientName(null);
   };
 
-  const handleOpenNewProjectModal = (clientId: number | null) => {
-    handleCloseProjectModal(); // Close the project modal first
-    setSelectedClientId(clientId); // Set the selected client ID for the new project
-    setNewProjectModalOpen(true); // Open the new project modal
+  const handleOpenNewProjectModal = () => {
+    setNewProjectModalOpen(true);
   };
 
   const handleCloseNewProjectModal = () => {
@@ -141,7 +139,7 @@ const Clients = () => {
               <Button
                 variant="outlined"
                 color="primary"
-                onClick={() => handleOpenNewProjectModal(selectedClientId)} // Pass selected client ID
+                onClick={handleOpenNewProjectModal}
                 style={{ marginTop: 16 }}
               >
                 Create New Project
