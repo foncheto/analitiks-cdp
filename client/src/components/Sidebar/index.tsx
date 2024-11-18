@@ -8,7 +8,6 @@ import {
   AlertCircle,
   AlertOctagon,
   AlertTriangle,
-  Banknote,
   Briefcase,
   ChartArea,
   ChevronDown,
