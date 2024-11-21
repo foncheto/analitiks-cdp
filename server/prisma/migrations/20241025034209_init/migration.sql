@@ -95,9 +95,10 @@ CREATE TABLE "Client" (
     "email" TEXT NOT NULL,
     "phone" TEXT,
     "address" TEXT,
-
+    "position" JSONB,  -- Store as JSONB to handle [latitude, longitude]
     CONSTRAINT "Client_pkey" PRIMARY KEY ("id")
 );
+
 
 -- CreateTable
 CREATE TABLE "Contact" (
