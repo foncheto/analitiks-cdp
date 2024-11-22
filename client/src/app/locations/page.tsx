@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import dynamic from "next/dynamic";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -25,6 +25,7 @@ const Popup = dynamic(() => import("react-leaflet").then((mod) => mod.Popup), {
   ssr: false,
 });
 
+// Define custom icon for the markers
 const customIcon = L.icon({
   iconUrl: "https://cdn-icons-png.flaticon.com/512/1077/1077114.png",
   iconSize: [25, 25],

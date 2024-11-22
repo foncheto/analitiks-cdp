@@ -21,6 +21,7 @@ import {
   List,
   ListItem,
   ListItemText,
+  Button,
 } from "@mui/material";
 
 const CustomToolbar = () => (
@@ -99,38 +100,64 @@ const Leads = () => {
         <DialogTitle>Lead Details</DialogTitle>
         <DialogContent>
           {selectedLead ? (
-            <List>
-              <ListItem>
-                <ListItemText primary="Name" secondary={selectedLead.name} />
-              </ListItem>
-              <ListItem>
-                <ListItemText primary="Email" secondary={selectedLead.email} />
-              </ListItem>
-              <ListItem>
-                <ListItemText primary="Phone" secondary={selectedLead.phone} />
-              </ListItem>
-              <ListItem>
-                <ListItemText
-                  primary="Company"
-                  secondary={selectedLead.company}
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemText
-                  primary="Status"
-                  secondary={selectedLead.status}
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemText
-                  primary="Source"
-                  secondary={selectedLead.source}
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemText primary="Notes" secondary={selectedLead.notes} />
-              </ListItem>
-            </List>
+            <>
+              <List>
+                <ListItem>
+                  <ListItemText primary="Name" secondary={selectedLead.name} />
+                </ListItem>
+                <ListItem>
+                  <ListItemText
+                    primary="Email"
+                    secondary={selectedLead.email}
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemText
+                    primary="Phone"
+                    secondary={selectedLead.phone}
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemText
+                    primary="Company"
+                    secondary={selectedLead.company}
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemText
+                    primary="Status"
+                    secondary={selectedLead.status}
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemText
+                    primary="Source"
+                    secondary={selectedLead.source}
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemText
+                    primary="Notes"
+                    secondary={selectedLead.notes}
+                  />
+                </ListItem>
+              </List>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  marginTop: "20px",
+                }}
+              >
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => console.log("Convert to Client clicked")} // Placeholder for functionality
+                >
+                  Convert to Client
+                </Button>
+              </div>
+            </>
           ) : (
             <CircularProgress />
           )}
