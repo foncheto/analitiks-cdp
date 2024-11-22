@@ -11,6 +11,7 @@ const nextConfig = {
     ],
   },
   transpilePackages: ["react-leaflet"],
+  reactStrictMode: true,
 };
 
 export default nextConfig;
