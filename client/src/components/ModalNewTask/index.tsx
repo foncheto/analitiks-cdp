@@ -23,13 +23,30 @@ const ModalNewTask = ({ isOpen, onClose, id = null }: Props) => {
   const [projectId, setProjectId] = useState("");
 
   const handleSubmit = async () => {
-    if (!title || !authorUserId || !(id !== null || projectId)) return;
+    if (!title || !authorUserId || (!id && !projectId)) return;
 
-    const formattedStartDate = formatISO(new Date(startDate), {
-      representation: "complete",
-    });
-    const formattedDueDate = formatISO(new Date(dueDate), {
-      representation: "complete",
+    const formattedStartDate = startDate
+      ? formatISO(new Date(startDate), {
+          representation: "complete",
+        })
+      : undefined;
+    const formattedDueDate = dueDate
+      ? formatISO(new Date(dueDate), {
+          representation: "complete",
+        })
+      : undefined;
+
+    console.log({
+      title,
+      description,
+      status,
+      priority,
+      tags,
+      startDate: formattedStartDate,
+      dueDate: formattedDueDate,
+      authorUserId: parseInt(authorUserId),
+      assignedUserId: parseInt(assignedUserId),
+      projectId: id !== null ? Number(id) : Number(projectId),
     });
 
     await createTask({
@@ -44,10 +61,13 @@ const ModalNewTask = ({ isOpen, onClose, id = null }: Props) => {
       assignedUserId: parseInt(assignedUserId),
       projectId: id !== null ? Number(id) : Number(projectId),
     });
+
+    onClose();
   };
 
   const isFormValid = () => {
-    return title && authorUserId && !(id !== null || projectId);
+    // Form is valid if we have title, authorUserId, and either an id prop or projectId input
+    return title && authorUserId && (id !== null || projectId !== "");
   };
 
   const selectStyles =

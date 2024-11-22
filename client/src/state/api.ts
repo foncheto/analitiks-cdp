@@ -118,6 +118,25 @@ export interface Interaction {
   phoneNumber?: string;
 }
 
+export interface Comment {
+  id: number;
+  text: string;
+  taskId: number;
+  authorUserId: number;
+}
+
+export interface Lead {
+  id: number;
+  name: string;
+  email: string;
+  phone?: string;
+  status: string;
+  source?: string;
+  notes?: string;
+  clientId?: number;
+  assignedTo?: number;
+}
+
 export const api = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL,
@@ -140,6 +159,8 @@ export const api = createApi({
     "Sales",
     "Contacts",
     "Interactions",
+    "Comments",
+    "Leads",
   ],
   endpoints: (build) => ({
     getAuthUser: build.query({
@@ -295,6 +316,50 @@ export const api = createApi({
         { type: "Projects", id: clientId },
       ],
     }),
+    getComments: build.query<Comment[], { taskId: number }>({
+      query: ({ taskId }) => `tasks/${taskId}/comments`,
+      providesTags: (result, error, { taskId }) => [
+        { type: "Comments", id: taskId },
+      ],
+    }),
+    addComment: build.mutation<Comment, { taskId: number; text: string }>({
+      query: ({ taskId, text }) => ({
+        url: `tasks/${taskId}/comments`,
+        method: "POST",
+        body: { text, taskId, userId: 1 }, // Hardcoded userId for now
+      }),
+      invalidatesTags: (result, error, { taskId }) => [
+        { type: "Comments", id: taskId },
+      ],
+    }),
+
+    // Leads Endpoints
+    getLeads: build.query<Lead[], void>({
+      query: () => "leads",
+      providesTags: ["Leads"],
+    }),
+    getLead: build.query<Lead, number>({
+      query: (leadId) => `leads/${leadId}`,
+      providesTags: (result, error, leadId) => [{ type: "Leads", id: leadId }],
+    }),
+    createLead: build.mutation<Lead, Partial<Lead>>({
+      query: (lead) => ({
+        url: "leads",
+        method: "POST",
+        body: lead,
+      }),
+      invalidatesTags: ["Leads"],
+    }),
+    updateLeadStatus: build.mutation<Lead, { leadId: number; status: string }>({
+      query: ({ leadId, status }) => ({
+        url: `leads/${leadId}/status`,
+        method: "PATCH",
+        body: { status },
+      }),
+      invalidatesTags: (result, error, { leadId }) => [
+        { type: "Leads", id: leadId },
+      ],
+    }),
   }),
 });
 
@@ -323,4 +388,10 @@ export const {
   useGetInteractionQuery,
   useCreateInteractionMutation,
   useGetProjectsByClientIdQuery,
+  useGetCommentsQuery,
+  useAddCommentMutation,
+  useGetLeadsQuery,
+  useGetLeadQuery,
+  useCreateLeadMutation,
+  useUpdateLeadStatusMutation,
 } = api;

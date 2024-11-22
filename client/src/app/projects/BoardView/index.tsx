@@ -1,5 +1,10 @@
-import { useGetTasksQuery, useUpdateTaskStatusMutation } from "@/state/api";
-import React from "react";
+import {
+  useGetTasksQuery,
+  useUpdateTaskStatusMutation,
+  useGetCommentsQuery,
+  useAddCommentMutation,
+} from "@/state/api";
+import React, { useState } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { Task as TaskType } from "@/state/api";
@@ -134,6 +139,8 @@ const Task = ({ task }: TaskProps) => {
     }),
   }));
 
+  const [isCommentsOpen, setIsCommentsOpen] = useState(false);
+
   const taskTagsSplit = task.tags ? task.tags.split(",") : [];
 
   const formattedStartDate = task.startDate
@@ -191,7 +198,6 @@ const Task = ({ task }: TaskProps) => {
                   key={tag}
                   className="rounded-full bg-blue-100 px-2 py-1 text-xs"
                 >
-                  {" "}
                   {tag}
                 </div>
               ))}
@@ -246,11 +252,78 @@ const Task = ({ task }: TaskProps) => {
           </div>
           <div className="flex items-center text-gray-500 dark:text-neutral-500">
             <MessageSquareMore size={20} />
-            <span className="ml-1 text-sm dark:text-neutral-400">
-              {numberOfComments}
+            <span
+              className="ml-1 cursor-pointer text-sm dark:text-neutral-400"
+              onClick={() => setIsCommentsOpen(!isCommentsOpen)}
+            >
+              {numberOfComments} Comments
             </span>
           </div>
         </div>
+
+        {isCommentsOpen && <CommentsSection taskId={task.id} />}
+      </div>
+    </div>
+  );
+};
+
+const CommentsSection = ({ taskId }: { taskId: number }) => {
+  const {
+    data: comments,
+    isLoading,
+    error,
+    refetch,
+  } = useGetCommentsQuery({
+    taskId,
+  });
+  const [addComment] = useAddCommentMutation();
+  const [newComment, setNewComment] = useState("");
+
+  const handleAddComment = async () => {
+    if (!newComment.trim()) return;
+
+    try {
+      await addComment({ taskId, text: newComment });
+      setNewComment("");
+      refetch(); // Refresh the comments list
+    } catch (error) {
+      console.error("Error adding comment:", error);
+    }
+  };
+
+  if (isLoading) return <div>Loading comments...</div>;
+  if (error) return <div>Error loading comments</div>;
+
+  return (
+    <div className="mt-4">
+      <h5 className="mb-2 text-sm font-semibold dark:text-white">Comments</h5>
+      <div className="space-y-2">
+        {comments?.map((comment) => (
+          <div
+            key={comment.id}
+            className="rounded-md bg-gray-100 p-2 dark:bg-dark-secondary"
+          >
+            <p className="text-sm text-gray-600 dark:text-white">
+              {comment.text}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-4 flex items-center">
+        <input
+          type="text"
+          value={newComment}
+          onChange={(e) => setNewComment(e.target.value)}
+          placeholder="Add a comment"
+          className="flex-grow rounded-md border p-2 shadow-sm dark:border-dark-tertiary dark:bg-dark-tertiary dark:text-white"
+        />
+        <button
+          onClick={handleAddComment}
+          className="ml-2 rounded-md bg-blue-500 px-3 py-2 text-white hover:bg-blue-600"
+        >
+          Add
+        </button>
       </div>
     </div>
   );

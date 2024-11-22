@@ -12,6 +12,7 @@ import userRoutes from "./routes/userRoutes";
 import teamRoutes from "./routes/teamRoutes";
 import clientRoutes from "./routes/clientRoutes";
 import saleRoutes from "./routes/saleRoutes";
+import leadRoutes from "./routes/leadRoutes";
 
 /* CONFIGURATIONS */
 dotenv.config();
@@ -36,6 +37,7 @@ app.use("/users", userRoutes);
 app.use("/teams", teamRoutes);
 app.use("/clients", clientRoutes);
 app.use("/sales", saleRoutes);
+app.use("/leads", leadRoutes);
 
 /* SERVER */
 const port = Number(process.env.PORT) || 3000;

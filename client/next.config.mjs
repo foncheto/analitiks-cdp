@@ -10,6 +10,7 @@ const nextConfig = {
       },
     ],
   },
+  transpilePackages: ["react-leaflet"],
 };
 
 export default nextConfig;

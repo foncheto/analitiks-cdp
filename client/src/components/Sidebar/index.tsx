@@ -96,11 +96,11 @@ const Sidebar = () => {
         <nav className="z-10 w-full">
           <SidebarLink icon={Home} label="Inicio" href="/" />
           <SidebarLink icon={Briefcase} label="Clientes" href="/clients" />
+          <SidebarLink icon={Users} label="Leads" href="/leads" />
           <SidebarLink icon={ChartArea} label="Dashboard" href="/dashboard" />
           <SidebarLink icon={Split} label="Segmentos" href="/segments" />
           <SidebarLink icon={Pin} label="Ubicaciones" href="/locations" />
           <SidebarLink icon={User} label="Usuarios" href="/users" />
-          <SidebarLink icon={Users} label="Equipos" href="/teams" />
           <SidebarLink icon={Settings} label="Configuración" href="/settings" />
         </nav>
 
@@ -207,8 +207,7 @@ interface SidebarLinkProps {
 
 const SidebarLink = ({ href, icon: Icon, label }: SidebarLinkProps) => {
   const pathname = usePathname();
-  const isActive =
-    pathname === href || (pathname === "/" && href === "/dashboard");
+  const isActive = pathname === href || (pathname === "/" && href === "/");
 
   return (
     <Link href={href} className="w-full">

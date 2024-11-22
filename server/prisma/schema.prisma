@@ -1,5 +1,3 @@
-// Updated Prisma schema for a Customer Data Platform with integrated AI chatbot, client, and CRM data.
-
 generator client {
   provider      = "prisma-client-js"
   binaryTargets = ["native", "rhel-openssl-3.0.x"]
@@ -25,6 +23,7 @@ model User {
   team            Team?            @relation(fields: [teamId], references: [id])
   interactions    Interaction[]
   contacts        Contact[]
+  leads           Lead[]
 }
 
 model Team {
@@ -114,12 +113,13 @@ model Client {
   id           Int        @id @default(autoincrement())
   companyName  String
   industry     String?
-  email        String     @unique
+  email        String     
   phone        String?
   address      String?
   position     Float[]    // Position: array of latitude and longitude
   contacts     Contact[]
   sales        Sale[]
+  leads        Lead[]
   interactions Interaction[]
   projects     Project[]
 }
@@ -146,6 +146,21 @@ model Sale {
   clientId    Int
 
   client Client @relation(fields: [clientId], references: [id])
+}
+
+model Lead {
+  id          Int      @id @default(autoincrement())
+  name        String
+  email       String?
+  phone       String?
+  status      String?   // e.g., "new", "contacted", "qualified", "converted", "unqualified"
+  source      String?  // e.g., "website", "referral", "ad campaign"
+  notes       String?
+  clientId    Int?     // Optional association with an existing client
+  assignedTo  Int?     // User ID of the salesperson managing the lead
+
+  client      Client?  @relation(fields: [clientId], references: [id])
+  user        User?    @relation(fields: [assignedTo], references: [userId])
 }
 
 model Interaction {

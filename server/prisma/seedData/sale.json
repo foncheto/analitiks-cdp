@@ -1,16 +1,32 @@
 [
   {
-    "id": 1,
-    "amount": 50000,
-    "date": "2023-07-10T00:00:00Z",
-    "description": "Annual Subscription",
+    "amount": 2500.5,
+    "date": "2024-11-01T10:30:00Z",
+    "description": "Quarterly subscription fee",
     "clientId": 1
   },
   {
-    "id": 2,
-    "amount": 15000,
-    "date": "2023-08-15T00:00:00Z",
-    "description": "Consulting Services",
+    "amount": 1500.0,
+    "date": "2024-10-15T15:45:00Z",
+    "description": "Initial setup and training",
     "clientId": 2
+  },
+  {
+    "amount": 3200.75,
+    "date": "2024-09-30T09:00:00Z",
+    "description": "Annual maintenance contract",
+    "clientId": 3
+  },
+  {
+    "amount": 500.0,
+    "date": "2024-11-10T14:00:00Z",
+    "description": "Additional service fees",
+    "clientId": 1
+  },
+  {
+    "amount": 4200.0,
+    "date": "2024-08-20T12:00:00Z",
+    "description": "Enterprise license purchase",
+    "clientId": 4
   }
 ]

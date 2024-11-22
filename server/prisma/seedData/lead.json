@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Jane Doe",
+    "email": "jane.doe@example.com",
+    "phone": "+1234567890",
+    "status": "new",
+    "source": "website",
+    "notes": "Interested in premium package",
+    "clientId": null,
+    "assignedTo": 1
+  },
+  {
+    "name": "John Smith",
+    "email": "john.smith@example.com",
+    "phone": "+0987654321",
+    "status": "contacted",
+    "source": "referral",
+    "notes": "Discussed basic features",
+    "clientId": null,
+    "assignedTo": 2
+  },
+  {
+    "name": "Alice Johnson",
+    "email": "alice.johnson@example.com",
+    "phone": "+1122334455",
+    "status": "qualified",
+    "source": "ad campaign",
+    "notes": "Requesting demo session",
+    "clientId": 1,
+    "assignedTo": 3
+  },
+  {
+    "name": "Bob Williams",
+    "email": "bob.williams@example.com",
+    "phone": "+2233445566",
+    "status": "converted",
+    "source": "email marketing",
+    "notes": "Converted to client after trial",
+    "clientId": 2,
+    "assignedTo": null
+  },
+  {
+    "name": "Eve Thompson",
+    "email": "eve.thompson@example.com",
+    "phone": "+3344556677",
+    "status": "unqualified",
+    "source": "trade show",
+    "notes": "Budget constraints",
+    "clientId": null,
+    "assignedTo": null
+  }
+]

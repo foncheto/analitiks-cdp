@@ -39,6 +39,7 @@ async function main() {
     "taskAssignment.json", // Seed task assignments after tasks and users
     "attachment.json", // Seed attachments that reference tasks
     "comment.json", // Seed comments that reference tasks and users
+    "lead.json", // Seed leads that reference clients
   ];
 
   // Clear all data before seeding

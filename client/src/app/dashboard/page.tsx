@@ -26,15 +26,15 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  ArcElement
+  ArcElement,
 );
 
 const lineData: ChartData<"line"> = {
-  labels: ["January", "February", "March", "April", "May"],
+  labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo"],
   datasets: [
     {
-      label: "Sales 2024",
-      data: [300, 400, 500, 200, 700],
+      label: "Ventas 2024 (en millones CLP)",
+      data: [120, 140, 180, 90, 200],
       borderColor: "rgba(75, 192, 192, 1)",
       backgroundColor: "rgba(75, 192, 192, 0.2)",
       fill: true,
@@ -51,17 +51,17 @@ const lineOptions: ChartOptions<"line"> = {
     },
     title: {
       display: true,
-      text: "Sales Chart",
+      text: "Ventas Mensuales (2024)",
     },
   },
 };
 
 const doughnutData1: ChartData<"doughnut"> = {
-  labels: ["MINERA", "ALIMENTOS", "AGUAS"],
+  labels: ["Minería", "Alimentos y Bebidas", "Tratamiento de Aguas"],
   datasets: [
     {
-      label: "VENTAS POR INDUSTRIA",
-      data: [300, 150, 100],
+      label: "Ventas por Industria",
+      data: [350, 220, 130],
       backgroundColor: [
         "rgba(255, 99, 132, 0.6)",
         "rgba(54, 162, 235, 0.6)",
@@ -77,20 +77,30 @@ const doughnutData1: ChartData<"doughnut"> = {
 };
 
 const doughnutData2: ChartData<"doughnut"> = {
-  labels: ["REGION A", "REGION B", "REGION C"],
+  labels: [
+    "Región Metropolitana",
+    "Región de Antofagasta",
+    "Región de Valparaíso",
+    "Región del Biobío",
+    "Región de Los Lagos",
+  ],
   datasets: [
     {
-      label: "SALES BY REGION",
-      data: [200, 300, 400],
+      label: "Ventas por Región",
+      data: [500, 300, 200, 150, 100],
       backgroundColor: [
         "rgba(153, 102, 255, 0.6)",
         "rgba(255, 159, 64, 0.6)",
         "rgba(75, 192, 192, 0.6)",
+        "rgba(255, 99, 132, 0.6)",
+        "rgba(54, 162, 235, 0.6)",
       ],
       hoverBackgroundColor: [
         "rgba(153, 102, 255, 1)",
         "rgba(255, 159, 64, 1)",
         "rgba(75, 192, 192, 1)",
+        "rgba(255, 99, 132, 1)",
+        "rgba(54, 162, 235, 1)",
       ],
     },
   ],
@@ -105,7 +115,7 @@ const doughnutOptions: ChartOptions<"doughnut"> = {
     },
     title: {
       display: true,
-      text: "Distribution Chart",
+      text: "Distribución de Ventas por Región",
     },
   },
 };
@@ -113,31 +123,31 @@ const doughnutOptions: ChartOptions<"doughnut"> = {
 const Dashboard: React.FC = () => {
   return (
     <div className="dashboard-wrapper">
-      <Header name="Analitiks SPA - Business Sales Dashboard" />
-      
+      <Header name="Analitiks SPA - Dashboard de Ventas Chile" />
+
       {/* Sección de valores importantes */}
       <div className="important-values">
         <div className="value-card">
           <h4 className="value-title">Ventas Mes Actual</h4>
-          <p className="value-number">$4,500</p>
+          <p className="value-number">$20.000.000 CLP</p>
         </div>
         <div className="value-card">
           <h4 className="value-title">Ventas Año Actual</h4>
-          <p className="value-number">$40,000</p>
+          <p className="value-number">$120.000.000 CLP</p>
         </div>
         <div className="value-card">
           <h4 className="value-title">Número de Clientes</h4>
-          <p className="value-number">1,500</p>
+          <p className="value-number">300</p>
         </div>
         <div className="value-card">
           <h4 className="value-title">Clientes Nuevos Año Actual</h4>
-          <p className="value-number">250</p>
+          <p className="value-number">45</p>
         </div>
       </div>
 
       <div className="dashboard-grid">
         <div className="chart-card chart-full-width">
-          <h3 className="chart-title">Ventas mensuales Año actual</h3>
+          <h3 className="chart-title">Ventas mensuales Año Actual</h3>
           <div className="chart-container line-chart">
             <Line data={lineData} options={lineOptions} />
           </div>
