@@ -2,11 +2,13 @@
 
 import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
 import { useGetClientsQuery } from "@/state/api";
 import { useAppSelector } from "../redux";
 import Header from "@/components/Header";
 
-// Importa dinámicamente react-leaflet para evitar problemas en el servidor
+// Dynamically import react-leaflet components
 const MapContainer = dynamic(
   () => import("react-leaflet").then((mod) => mod.MapContainer),
   { ssr: false },
@@ -23,17 +25,12 @@ const Popup = dynamic(() => import("react-leaflet").then((mod) => mod.Popup), {
   ssr: false,
 });
 
-// Carga Leaflet dinámicamente solo en el cliente
-let customIcon: any = null;
-if (typeof window !== "undefined") {
-  const L = require("leaflet");
-  customIcon = L.icon({
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/1077/1077114.png",
-    iconSize: [25, 25],
-    iconAnchor: [16, 32],
-    popupAnchor: [0, -32],
-  });
-}
+const customIcon = L.icon({
+  iconUrl: "https://cdn-icons-png.flaticon.com/512/1077/1077114.png",
+  iconSize: [25, 25],
+  iconAnchor: [16, 32],
+  popupAnchor: [0, -32],
+});
 
 const Locations = () => {
   const { data: clients, isLoading, isError } = useGetClientsQuery();
@@ -47,7 +44,7 @@ const Locations = () => {
       <Header name="Client Locations" />
       <div style={{ height: "80vh", width: "100%" }}>
         <MapContainer
-          center={[-33.4143239, -70.5925717]} // Centro predeterminado
+          center={[-33.4143239, -70.5925717]} // Default map center
           zoom={8}
           style={{ height: "100%", width: "100%" }}
         >
