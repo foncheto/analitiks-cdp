@@ -130,6 +130,7 @@ export interface Lead {
   name: string;
   email: string;
   phone?: string;
+  company?: string;
   status: string;
   source?: string;
   notes?: string;

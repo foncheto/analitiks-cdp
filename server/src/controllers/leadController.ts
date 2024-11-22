@@ -80,7 +80,6 @@ export const getNewLeads = async (
 
     // remove company field from the leads
     users.forEach((user: any) => {
-      delete user.company;
       delete user.create;
       delete user.id;
     });
@@ -89,6 +88,12 @@ export const getNewLeads = async (
     users.forEach((user: any) => {
       user.phone = user.user_number;
       delete user.user_number;
+    });
+
+    // add status new and source chatbot to the leads
+    users.forEach((user: any) => {
+      user.status = "new";
+      user.source = "chatbot";
     });
 
     // Load the new leads into the database

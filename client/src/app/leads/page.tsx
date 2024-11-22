@@ -35,6 +35,7 @@ const columns: GridColDef[] = [
   { field: "name", headerName: "Name", width: 200 },
   { field: "email", headerName: "Email", width: 200 },
   { field: "phone", headerName: "Phone", width: 150 },
+  { field: "company", headerName: "Company", width: 200 },
   { field: "status", headerName: "Status", width: 150 },
   { field: "source", headerName: "Source", width: 200 },
   { field: "notes", headerName: "Notes", width: 250 },
@@ -50,6 +51,7 @@ const Leads = () => {
     name: string;
     email: string;
     phone: string;
+    company: string;
     status: string;
     source: string;
     notes: string;
@@ -106,6 +108,12 @@ const Leads = () => {
               </ListItem>
               <ListItem>
                 <ListItemText primary="Phone" secondary={selectedLead.phone} />
+              </ListItem>
+              <ListItem>
+                <ListItemText
+                  primary="Company"
+                  secondary={selectedLead.company}
+                />
               </ListItem>
               <ListItem>
                 <ListItemText

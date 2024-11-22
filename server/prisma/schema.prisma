@@ -156,6 +156,7 @@ model Lead {
   status      String?   // e.g., "new", "contacted", "qualified", "converted", "unqualified"
   source      String?  // e.g., "website", "referral", "ad campaign"
   notes       String?
+  company     String?
   clientId    Int?     // Optional association with an existing client
   assignedTo  Int?     // User ID of the salesperson managing the lead
 
