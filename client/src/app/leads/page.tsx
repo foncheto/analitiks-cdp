@@ -156,6 +156,13 @@ const Leads = () => {
                 >
                   Convert to Client
                 </Button>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => console.log("Convert to Client clicked")} // Placeholder for functionality
+                >
+                  Convert to Client
+                </Button>
               </div>
             </>
           ) : (

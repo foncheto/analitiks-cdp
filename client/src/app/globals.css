@@ -63,3 +63,10 @@ body,
   width: 0px;
   height: 0px;
 }
+
+/* Add this to your global styles or component-specific styles */
+.map-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}

@@ -47,9 +47,9 @@ const Locations = () => {
       <Header name="Client Locations" />
       <div style={{ height: "80vh", width: "100%" }}>
         <MapContainer
-          center={[-33.4143239, -70.5925717]} // Centro predeterminado
+          className="map-container"
+          center={[-33.4143239, -70.5925717]} // Default center
           zoom={8}
-          style={{ height: "100%", width: "100%" }}
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
