@@ -5,7 +5,7 @@ import {
   getSales,
   postSale,
   getSalesData,
-  uploadSalesData,
+  uploadSalesCSV,
 } from "../controllers/saleController";
 
 const router = Router();
@@ -17,6 +17,6 @@ router.get("/:saleId", getSale);
 
 router.get("/test/download", getSalesData);
 
-router.post("/test/upload", uploadSalesData);
+router.post("/upload-csv", uploadSalesCSV); // New endpoint
 
 export default router;

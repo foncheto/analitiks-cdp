@@ -87,75 +87,129 @@ export const getSalesData = async (
       .json({ message: `Error retrieving sales: ${error.message}` });
   }
 };
-export const uploadSalesData = async (
+
+// Upload and process CSV file
+export const uploadSalesCSV = async (
   req: Request,
   res: Response
 ): Promise<void> => {
   upload(req, res, async (err) => {
     if (err) {
-      return res.status(400).json({ message: "File upload error" });
+      return res
+        .status(400)
+        .json({ message: `File upload error: ${err.message}` });
     }
 
-    const filePath = req.file?.path;
-
-    if (!filePath) {
+    if (!req.file) {
       return res.status(400).json({ message: "No file uploaded" });
     }
 
+    const filePath = req.file.path;
+    const salesData: Array<{
+      amount: number;
+      date: Date;
+      description?: string;
+      clientId: number;
+    }> = [];
+
     try {
-      const results: any[] = [];
+      // Parse the CSV file
+      await new Promise<void>((resolve, reject) => {
+        fs.createReadStream(filePath)
+          .pipe(csvParser({ headers: true, skipLines: 1 })) // Ensure headers are parsed correctly
+          .on("data", (row) => {
+            console.log("Row:", row);
+            try {
+              // Clean and extract fields
+              const amount = parseFloat(row["Amount"].replace(/,/g, "")); // Remove commas
+              const rawDate = row["Expected Close Date"];
+              const date = new Date(
+                rawDate.includes("-")
+                  ? rawDate.split("-").reverse().join("-")
+                  : rawDate
+              ); // Handle DD-MM-YYYY
+              const description = row["Description"] || null;
+              const clientReference = row["Account"] || null;
 
-      // Parse the uploaded CSV file
-      fs.createReadStream(filePath)
-        .pipe(csvParser())
-        .on("data", (row) => {
-          results.push(row);
+              console.log("Sales data:", {
+                amount,
+                date,
+                description,
+                clientId: 1,
+              });
+
+              // Validate mandatory fields
+              if (isNaN(amount) || isNaN(date.getTime()) || !clientReference) {
+                throw new Error("Invalid data format in CSV row");
+              }
+
+              console.log("Sales data:", {
+                amount,
+                date,
+                description,
+                clientId: 1,
+              });
+
+              // Push valid sales data
+              salesData.push({ amount, date, description, clientId: 1 });
+            } catch (error) {
+              console.error(`Error parsing row: ${JSON.stringify(row)}`, error);
+            }
+          })
+          .on("end", resolve)
+          .on("error", reject);
+      });
+
+      if (salesData.length === 0) {
+        throw new Error("No valid sales data found in the CSV");
+      }
+
+      // Insert sales data into the database
+      const insertedSales = await Promise.all(
+        salesData.map(async (sale) => {
+          return prisma.sale.create({
+            data: {
+              amount: sale.amount,
+              date: sale.date,
+              description: sale.description,
+              clientId: sale.clientId,
+            },
+          });
         })
-        .on("end", async () => {
-          // Fetch all clients for cross-referencing
-          const clients = await prisma.client.findMany({
-            select: { id: true, companyName: true },
-          });
+      );
 
-          // Map CSV rows to Prisma Sale model
-          const mappedSales = results.map((row) => {
-            const client = clients.find(
-              (client) => client.companyName === row.Account
-            );
+      // Clean up the temporary file
+      fs.unlinkSync(filePath);
 
-            return {
-              amount: parseFloat(row.Amount),
-              date: new Date(row["Expected Close Date"]),
-              description: row.Description || null,
-              clientId: client ? client.id : null, // Set clientId if a match is found, otherwise null
-            };
-          });
-
-          console.log("Mapped sales:", mappedSales);
-
-          // Insert into the database (only valid sales with non-null clientId)
-          const validSales = mappedSales.filter(
-            (
-              sale
-            ): sale is {
-              amount: number;
-              date: Date;
-              description: any;
-              clientId: number;
-            } => sale.clientId !== null
-          );
-          await prisma.sale.createMany({ data: validSales });
-
-          // Delete the temporary file
-          fs.unlinkSync(filePath);
-
-          res.status(201).json({ message: "Sales data uploaded successfully" });
-        });
+      res.status(201).json({
+        message: "CSV file processed successfully",
+        sales: insertedSales,
+      });
     } catch (error: any) {
-      console.error("Error processing CSV:", error.message);
+      // Clean up the temporary file in case of errors
+      fs.unlinkSync(filePath);
+
+      console.error("Error processing CSV:", error);
       res
         .status(500)
-        .json({ message: `Error uploading sales data: ${error.message}` });
+        .json({ message: `Error processing CSV: ${error.message}` });
     }
   });
 };
+
+// Helper function to map client references to IDs
+function extractClientId(clientReference: string): number | null {
+  // Example: Parse "Accounts::::Celulosa Arauco y Constitucion S.A. (Nueva Aldea)"
+  const clientMatch = clientReference.match(/^Accounts::::(.+?)\s*\(.*?\)$/);
+  if (clientMatch) {
+    const clientName = clientMatch[1].trim();
+    // Lookup logic: Fetch the client ID from the database based on the name
+    // For simplicity, return a hardcoded ID here
+    const clientIdMap: { [key: string]: number } = {
+      "Celulosa Arauco y Constitucion S.A.": 1,
+      "Comercial Boreal SpA": 2,
+    };
+    return clientIdMap[clientName] || null;
+  }
+  return null;
+}

@@ -12,6 +12,7 @@ import {
   ChartArea,
   ChevronDown,
   ChevronUp,
+  DollarSign,
   Home,
   Layers3,
   LockIcon,
@@ -99,6 +100,7 @@ const Sidebar = () => {
           <SidebarLink icon={Users} label="Leads" href="/leads" />
           <SidebarLink icon={ChartArea} label="Dashboard" href="/dashboard" />
           <SidebarLink icon={Split} label="Segmentos" href="/segments" />
+          <SidebarLink icon={DollarSign} label="Ventas" href="/sales" />
           <SidebarLink icon={Pin} label="Ubicaciones" href="/locations" />
           <SidebarLink icon={User} label="Usuarios" href="/users" />
           <SidebarLink icon={Settings} label="Configuración" href="/settings" />

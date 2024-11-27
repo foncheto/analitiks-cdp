@@ -5,6 +5,7 @@ import {
   getLead,
   postLead,
   getNewLeads,
+  updateLeadStatus,
 } from "../controllers/leadController";
 
 const router = Router();
@@ -15,5 +16,7 @@ router.post("/", postLead);
 router.get("/:leadId", getLead);
 
 router.get("/update/bot", getNewLeads);
+
+router.patch("/:leadId/status", updateLeadStatus);
 
 export default router;
