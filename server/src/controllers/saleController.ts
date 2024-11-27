@@ -113,50 +113,67 @@ export const uploadSalesCSV = async (
     }> = [];
 
     try {
-      // Parse the CSV file
+      // Define column indices explicitly
+      const columnIndices = {
+        dealName: 0,
+        amount: 1,
+        account: 2,
+        expectedCloseDate: 4,
+        description: 15, // Assuming Description is at index 15 based on your CSV structure
+      };
+
       await new Promise<void>((resolve, reject) => {
         fs.createReadStream(filePath)
-          .pipe(csvParser({ headers: true, skipLines: 1 })) // Ensure headers are parsed correctly
+          .pipe(
+            csvParser({
+              headers: false, // Use false since headers are not being parsed correctly
+              skipLines: 1, // Skip header row
+            })
+          )
           .on("data", (row) => {
-            console.log("Row:", row);
             try {
-              // Clean and extract fields
-              const amount = parseFloat(row["Amount"].replace(/,/g, "")); // Remove commas
-              const rawDate = row["Expected Close Date"];
-              const date = new Date(
-                rawDate.includes("-")
-                  ? rawDate.split("-").reverse().join("-")
-                  : rawDate
-              ); // Handle DD-MM-YYYY
-              const description = row["Description"] || null;
-              const clientReference = row["Account"] || null;
+              // Clean and extract fields using explicit indices
+              const amount = parseFloat(
+                row[columnIndices.amount].replace(/,/g, "")
+              );
 
-              console.log("Sales data:", {
-                amount,
-                date,
-                description,
-                clientId: 1,
-              });
+              // Parse date
+              const rawDate = row[columnIndices.expectedCloseDate];
+              const [day, month, year] = rawDate.split("-");
+              const date = new Date(`${year}-${month}-${day}`);
+
+              const description = row[columnIndices.description] || null;
+              const clientReference = row[columnIndices.account] || null;
+
+              const clientId = extractClientId(clientReference);
+
+              if (clientId === null) {
+                console.error(
+                  `No client ID found for reference: ${clientReference}`
+                );
+                return; // Skip this row
+              }
 
               // Validate mandatory fields
-              if (isNaN(amount) || isNaN(date.getTime()) || !clientReference) {
+              if (isNaN(amount) || isNaN(date.getTime())) {
                 throw new Error("Invalid data format in CSV row");
               }
 
-              console.log("Sales data:", {
+              // Push valid sales data
+              salesData.push({
                 amount,
                 date,
                 description,
-                clientId: 1,
+                clientId,
               });
-
-              // Push valid sales data
-              salesData.push({ amount, date, description, clientId: 1 });
             } catch (error) {
               console.error(`Error parsing row: ${JSON.stringify(row)}`, error);
             }
           })
-          .on("end", resolve)
+          .on("end", () => {
+            console.log(`Parsed ${salesData.length} valid sales entries`);
+            resolve();
+          })
           .on("error", reject);
       });
 
@@ -164,30 +181,24 @@ export const uploadSalesCSV = async (
         throw new Error("No valid sales data found in the CSV");
       }
 
-      // Insert sales data into the database
-      const insertedSales = await Promise.all(
-        salesData.map(async (sale) => {
-          return prisma.sale.create({
-            data: {
-              amount: sale.amount,
-              date: sale.date,
-              description: sale.description,
-              clientId: sale.clientId,
-            },
-          });
-        })
-      );
+      // Batch create sales
+      const insertedSales = await prisma.sale.createMany({
+        data: salesData,
+        skipDuplicates: true, // Optional: skip duplicate entries
+      });
 
       // Clean up the temporary file
       fs.unlinkSync(filePath);
 
       res.status(201).json({
         message: "CSV file processed successfully",
-        sales: insertedSales,
+        salesCount: insertedSales.count, // Number of sales created
       });
     } catch (error: any) {
       // Clean up the temporary file in case of errors
-      fs.unlinkSync(filePath);
+      if (fs.existsSync(filePath)) {
+        fs.unlinkSync(filePath);
+      }
 
       console.error("Error processing CSV:", error);
       res
@@ -197,18 +208,65 @@ export const uploadSalesCSV = async (
   });
 };
 
-// Helper function to map client references to IDs
 function extractClientId(clientReference: string): number | null {
-  // Example: Parse "Accounts::::Celulosa Arauco y Constitucion S.A. (Nueva Aldea)"
-  const clientMatch = clientReference.match(/^Accounts::::(.+?)\s*\(.*?\)$/);
+  if (!clientReference) return null;
+
+  // Updated regex to handle more variations
+  const clientMatch = clientReference.match(
+    /^Accounts::::(.*?)(?:\s*\(.*?\))?$/
+  );
+
   if (clientMatch) {
     const clientName = clientMatch[1].trim();
-    // Lookup logic: Fetch the client ID from the database based on the name
-    // For simplicity, return a hardcoded ID here
+
     const clientIdMap: { [key: string]: number } = {
-      "Celulosa Arauco y Constitucion S.A.": 1,
-      "Comercial Boreal SpA": 2,
+      "Celulosa Arauco y Constitución S.A.": 1,
+      "Sierra Gorda SCM": 2,
+      "SQM Salar SA": 3,
+      "Minera Centinela": 4,
+      "SQM Nitratos SA": 5,
+      "Anglo American Sur": 6,
+      "Colbún SA": 7,
+      "ENAP Refinerías SA": 8,
+      "Compañía Minera Teck Quebrada Blanca S.A.": 9,
+      "Coexca SA": 10,
+      "Orafti Chile SA": 11,
+      "Voens SPA": 12,
+      "Dacsi LTDA": 13,
+      "AES Gener Ventanas": 14,
+      "Vigaflow SA": 15,
+      "ABControl LTDA": 16,
+      "Patagoniafresh SA Planta Molina": 17,
+      "Wellser SRL": 18,
+      "Patagoniafresh SA Planta San Fernando": 19,
+      "CMPC Pulp s.a": 20,
+      "Emeltec spa": 21,
+      "compañia minera teck quebrada blanca s.a": 22,
+      "Aguas CCU-NESTLE": 23,
+      "Instruvalve Ltda.": 24,
+      "Compañia papelera del pacífico": 25,
+      Soltex: 26,
+      Quiborax: 27,
+      "Compañía Minera Zaldívar": 28,
+      "New Tech Copper": 29,
+      "Comafri s.a": 30,
+      "Wellser SRL (duplicate)": 31,
+      Tecnasic: 32,
+      "Cervecera CCU Chile": 33,
+      "Curtiembre Rufino Melero": 34,
+      "Difem s.a": 35,
+      "cerveceria chile s.a": 36,
+      "Miq Ltda": 37,
+      Novofish: 38,
+      "RWL Water Perú": 39,
+      Hidroservi: 40,
+      "Cementos Bío bío s.a.": 41,
+      "Biodiversa s.a": 42,
+      "Galdames spa": 43,
+      "Termodinamica ltda.": 44,
+      "Albemarle ltda.": 45,
     };
+
     return clientIdMap[clientName] || null;
   }
   return null;

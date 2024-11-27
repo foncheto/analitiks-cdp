@@ -10,6 +10,8 @@ df.columns = [col.replace('"', '') for col in df.columns]
 # fill na with 0
 df.fillna(0, inplace=True)
 
+
+df = df.head(10)
 # Save the updated CSV
 output_path = "output_file.csv"  # Replace with your desired output file path
 df.to_csv(output_path, index=False)

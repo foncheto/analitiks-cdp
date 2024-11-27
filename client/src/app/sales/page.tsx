@@ -2,11 +2,23 @@
 
 import React, { useState } from "react";
 import { useGetSalesQuery, useCreateSaleMutation } from "@/state/api";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Button,
+  TextField,
+} from "@mui/material";
 
 const SalesPage = () => {
-  const { data: sales = [], isLoading, isError } = useGetSalesQuery();
+  const { data: sales = [], isLoading, isError, refetch } = useGetSalesQuery();
   const [createSale] = useCreateSaleMutation();
 
+  // State for modal
+  const [modalOpen, setModalOpen] = useState(false);
+
+  // State for form data
   const [formData, setFormData] = useState({
     amount: 0,
     date: new Date().toISOString().split("T")[0], // Default to today
@@ -28,16 +40,23 @@ const SalesPage = () => {
     }));
   };
 
+  const handleModalOpen = () => setModalOpen(true);
+  const handleModalClose = () => {
+    setModalOpen(false);
+    setFormData({
+      amount: 0,
+      date: new Date().toISOString().split("T")[0],
+      description: "",
+      clientId: 0,
+    });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       await createSale(formData).unwrap();
-      setFormData({
-        amount: 0,
-        date: new Date().toISOString().split("T")[0],
-        description: "",
-        clientId: 0,
-      });
+      handleModalClose();
+      refetch(); // Refresh sales after a new sale is added
     } catch (error) {
       console.error("Error creating sale:", error);
     }
@@ -76,6 +95,7 @@ const SalesPage = () => {
       console.log("Uploaded sales:", result.sales);
       setFile(null);
       setUploadError("");
+      refetch(); // Refresh sales after CSV upload
     } catch (error) {
       console.error("Error uploading CSV:", error);
       setUploadError(
@@ -88,51 +108,18 @@ const SalesPage = () => {
     <div className="p-8">
       <h1 className="mb-4 text-2xl font-bold">Sales View</h1>
 
-      {/* Sales Registration Form */}
-      <form onSubmit={handleSubmit} className="mb-6">
-        <div className="grid grid-cols-2 gap-4">
-          <input
-            type="number"
-            name="amount"
-            value={formData.amount}
-            onChange={handleChange}
-            placeholder="Amount"
-            className="rounded border border-gray-300 p-2"
-            required
-          />
-          <input
-            type="date"
-            name="date"
-            value={formData.date}
-            onChange={handleChange}
-            className="rounded border border-gray-300 p-2"
-            required
-          />
-          <input
-            type="text"
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-            placeholder="Description"
-            className="rounded border border-gray-300 p-2"
-          />
-          <input
-            type="number"
-            name="clientId"
-            value={formData.clientId}
-            onChange={handleChange}
-            placeholder="Client ID"
-            className="rounded border border-gray-300 p-2"
-            required
-          />
-        </div>
-        <button
-          type="submit"
-          className="mt-4 rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+      {/* Actions */}
+      <div className="mb-4 flex items-center gap-4">
+        <Button variant="contained" color="primary" onClick={handleModalOpen}>
+          Register New Sale
+        </Button>
+        <Button
+          onClick={refetch}
+          className="rounded bg-gray-500 px-4 py-2 text-white hover:bg-gray-600"
         >
-          Register Sale
-        </button>
-      </form>
+          Refresh Sales
+        </Button>
+      </div>
 
       {/* CSV Upload */}
       <div className="mb-6">
@@ -143,12 +130,12 @@ const SalesPage = () => {
           onChange={handleFileChange}
           className="mb-4"
         />
-        <button
+        <Button
           onClick={handleFileUpload}
           className="rounded bg-green-500 px-4 py-2 text-white hover:bg-green-600"
         >
           Upload CSV
-        </button>
+        </Button>
         {uploadError && <p className="mt-2 text-red-500">{uploadError}</p>}
       </div>
 
@@ -159,7 +146,7 @@ const SalesPage = () => {
       ) : isError ? (
         <p>Error fetching sales.</p>
       ) : (
-        <div className="overflow-x-auto">
+        <div className="overflow-y-auto" style={{ maxHeight: "500px" }}>
           <table className="w-full table-auto border-collapse border border-gray-300">
             <thead>
               <tr className="bg-gray-100">
@@ -206,6 +193,58 @@ const SalesPage = () => {
           </table>
         </div>
       )}
+
+      {/* Register New Sale Modal */}
+      <Dialog
+        open={modalOpen}
+        onClose={handleModalClose}
+        fullWidth
+        maxWidth="sm"
+      >
+        <DialogTitle>Register New Sale</DialogTitle>
+        <DialogContent>
+          <form className="flex flex-col gap-4">
+            <TextField
+              label="Amount"
+              name="amount"
+              type="number"
+              value={formData.amount}
+              onChange={handleChange}
+              required
+            />
+            <TextField
+              label="Date"
+              name="date"
+              type="date"
+              value={formData.date}
+              onChange={handleChange}
+              required
+            />
+            <TextField
+              label="Description"
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
+            />
+            <TextField
+              label="Client ID"
+              name="clientId"
+              type="number"
+              value={formData.clientId}
+              onChange={handleChange}
+              required
+            />
+          </form>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleModalClose} color="secondary">
+            Cancel
+          </Button>
+          <Button onClick={handleSubmit} variant="contained" color="primary">
+            Save Sale
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };

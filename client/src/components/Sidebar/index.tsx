@@ -128,48 +128,6 @@ const Sidebar = () => {
               href={`/projects/${project.id}`}
             />
           ))}
-
-        {/* PRIORITIES LINKS */}
-        <button
-          onClick={() => setShowPriority((prev) => !prev)}
-          className="flex w-full items-center justify-between px-8 py-3 text-gray-500"
-        >
-          <span className="">Prioridad</span>
-          {showPriority ? (
-            <ChevronUp className="h-5 w-5" />
-          ) : (
-            <ChevronDown className="h-5 w-5" />
-          )}
-        </button>
-        {showPriority && (
-          <>
-            <SidebarLink
-              icon={AlertCircle}
-              label="Urgente"
-              href="/priority/urgent"
-            />
-            <SidebarLink
-              icon={ShieldAlert}
-              label="Alta"
-              href="/priority/high"
-            />
-            <SidebarLink
-              icon={AlertTriangle}
-              label="Media"
-              href="/priority/medium"
-            />
-            <SidebarLink
-              icon={AlertOctagon}
-              label="Baja"
-              href="/priority/low"
-            />
-            <SidebarLink
-              icon={Layers3}
-              label="Backlog"
-              href="/priority/backlog"
-            />
-          </>
-        )}
       </div>
       <div className="z-10 mt-32 flex w-full flex-col items-center gap-4 bg-white px-8 py-4 dark:bg-black md:hidden">
         <div className="flex w-full items-center">

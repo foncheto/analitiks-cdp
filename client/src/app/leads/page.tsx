@@ -29,10 +29,13 @@ import {
   TextField,
 } from "@mui/material";
 
-const CustomToolbar = () => (
+const CustomToolbar = ({ onRefresh }: { onRefresh: () => void }) => (
   <GridToolbarContainer className="toolbar flex gap-2">
     <GridToolbarFilterButton />
     <GridToolbarExport />
+    <Button variant="contained" color="secondary" onClick={onRefresh}>
+      Refresh Leads
+    </Button>
   </GridToolbarContainer>
 );
 
@@ -48,7 +51,7 @@ const columns: GridColDef[] = [
 ];
 
 const Leads = () => {
-  const { data: leads, isLoading, isError } = useGetLeadsQuery();
+  const { data: leads, isLoading, isError, refetch } = useGetLeadsQuery();
   const [createLead] = useCreateLeadMutation();
   const [updateLeadStatus] = useUpdateLeadStatusMutation();
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
@@ -116,6 +119,7 @@ const Leads = () => {
         source: "manual",
       }).unwrap();
       handleCloseCreateModal();
+      refetch(); // Refresh leads after creating a new one
     } catch (error) {
       console.error("Error creating lead:", error);
     }
@@ -134,6 +138,7 @@ const Leads = () => {
         setSelectedLead((prev) =>
           prev ? { ...prev, status: newStatus } : prev,
         );
+        refetch(); // Refresh leads after status update
       } catch (error) {
         console.error("Error upgrading status:", error);
       }
@@ -153,6 +158,7 @@ const Leads = () => {
         setSelectedLead((prev) =>
           prev ? { ...prev, status: newStatus } : prev,
         );
+        refetch(); // Refresh leads after status update
       } catch (error) {
         console.error("Error downgrading status:", error);
       }
@@ -182,7 +188,7 @@ const Leads = () => {
           pagination
           onRowClick={handleRowClick}
           slots={{
-            toolbar: CustomToolbar,
+            toolbar: () => <CustomToolbar onRefresh={refetch} />, // Pass refetch to toolbar
           }}
           className={dataGridClassNames} // Add your CSS class here if needed
           sx={dataGridSxStyles(isDarkMode)}
