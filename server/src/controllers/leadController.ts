@@ -83,7 +83,7 @@ export const getNewLeads = async (
 ): Promise<void> => {
   try {
     // Call the chatbot API to get the newest leads
-    const response = await fetch("http://34.224.89.101:9090/getleads");
+    const response = await fetch("http://54.162.211.32:9090/getleads");
     const newLeads = await response.json();
     // get the leads from the users object in the response
     const { users } = newLeads;

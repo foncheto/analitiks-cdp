@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 // Replace with your VM's API URL and port
-const API_URL = "http://localhost:8000"; // Adjust if running on a different host/port
+const API_URL = "http://localhost:80"; // Adjust if running on a different host/port
 
 (async () => {
   try {
