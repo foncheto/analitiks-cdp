@@ -116,6 +116,7 @@ model Client {
   email        String     
   phone        String?
   address      String?
+  region       String?
   position     Float[]    // Position: array of latitude and longitude
   contacts     Contact[]
   sales        Sale[]

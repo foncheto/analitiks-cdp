@@ -89,6 +89,7 @@ export interface Client {
   phone?: string;
   address?: string;
   position?: [number, number];
+  region?: string;
 }
 
 export interface Sale {

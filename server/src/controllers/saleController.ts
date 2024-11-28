@@ -142,7 +142,11 @@ export const uploadSalesCSV = async (
               const [day, month, year] = rawDate.split("-");
               const date = new Date(`${year}-${month}-${day}`);
 
-              const description = row[columnIndices.description] || null;
+              // Extract the Deal Name (0th position) and parse it for description
+              const dealName = row[0]; // Assuming the deal name is in the 0th column
+              const description =
+                dealName.split(" - ").slice(2).join(" -") || null;
+
               const clientReference = row[columnIndices.account] || null;
 
               const clientId = extractClientId(clientReference);

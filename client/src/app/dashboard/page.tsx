@@ -16,6 +16,7 @@ import {
   ChartOptions,
 } from "chart.js";
 import Header from "@/components/Header";
+import { useGetSalesQuery, useGetClientsQuery } from "@/state/api";
 
 // Register necessary Chart.js components
 ChartJS.register(
@@ -29,119 +30,172 @@ ChartJS.register(
   ArcElement,
 );
 
-const lineData: ChartData<"line"> = {
-  labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo"],
-  datasets: [
-    {
-      label: "Ventas 2024 (en millones CLP)",
-      data: [120, 140, 180, 90, 200],
-      borderColor: "rgba(75, 192, 192, 1)",
-      backgroundColor: "rgba(75, 192, 192, 0.2)",
-      fill: true,
-    },
-  ],
-};
-
-const lineOptions: ChartOptions<"line"> = {
-  responsive: true,
-  maintainAspectRatio: false,
-  plugins: {
-    legend: {
-      position: "top",
-    },
-    title: {
-      display: true,
-      text: "Ventas Mensuales (2024)",
-    },
-  },
-};
-
-const doughnutData1: ChartData<"doughnut"> = {
-  labels: ["Minería", "Alimentos y Bebidas", "Tratamiento de Aguas"],
-  datasets: [
-    {
-      label: "Ventas por Industria",
-      data: [350, 220, 130],
-      backgroundColor: [
-        "rgba(255, 99, 132, 0.6)",
-        "rgba(54, 162, 235, 0.6)",
-        "rgba(255, 206, 86, 0.6)",
-      ],
-      hoverBackgroundColor: [
-        "rgba(255, 99, 132, 1)",
-        "rgba(54, 162, 235, 1)",
-        "rgba(255, 206, 86, 1)",
-      ],
-    },
-  ],
-};
-
-const doughnutData2: ChartData<"doughnut"> = {
-  labels: [
-    "Región Metropolitana",
-    "Región de Antofagasta",
-    "Región de Valparaíso",
-    "Región del Biobío",
-    "Región de Los Lagos",
-  ],
-  datasets: [
-    {
-      label: "Ventas por Región",
-      data: [500, 300, 200, 150, 100],
-      backgroundColor: [
-        "rgba(153, 102, 255, 0.6)",
-        "rgba(255, 159, 64, 0.6)",
-        "rgba(75, 192, 192, 0.6)",
-        "rgba(255, 99, 132, 0.6)",
-        "rgba(54, 162, 235, 0.6)",
-      ],
-      hoverBackgroundColor: [
-        "rgba(153, 102, 255, 1)",
-        "rgba(255, 159, 64, 1)",
-        "rgba(75, 192, 192, 1)",
-        "rgba(255, 99, 132, 1)",
-        "rgba(54, 162, 235, 1)",
-      ],
-    },
-  ],
-};
-
-const doughnutOptions: ChartOptions<"doughnut"> = {
-  responsive: true,
-  maintainAspectRatio: false,
-  plugins: {
-    legend: {
-      position: "top",
-    },
-    title: {
-      display: true,
-      text: "Distribución de Ventas por Región",
-    },
-  },
-};
-
 const Dashboard: React.FC = () => {
+  const { data: sales = [], isLoading: isSalesLoading } = useGetSalesQuery();
+  const { data: clients = [], isLoading: isClientsLoading } =
+    useGetClientsQuery();
+
+  // Calculate metrics
+  const totalSales = sales.reduce((acc, sale) => acc + sale.amount, 0);
+  const monthlySales = sales.reduce((acc: { [key: number]: number }, sale) => {
+    const month = new Date(sale.date).getMonth();
+    acc[month] = (acc[month] || 0) + sale.amount;
+    return acc;
+  }, {});
+  const monthlySalesData = Array.from(
+    { length: 12 },
+    (_, i) => monthlySales[i] || 0,
+  );
+
+  const industries: { [key: string]: number } = {};
+  const regions: { [key: string]: number } = {};
+  sales.forEach((sale) => {
+    const client = clients.find((client) => client.id === sale.clientId);
+    if (client) {
+      const { industry, region } = client;
+      if (industry) {
+        industries[industry] = (industries[industry] || 0) + sale.amount;
+      }
+      if (region) {
+        regions[region] = (regions[region] || 0) + sale.amount;
+      }
+    }
+  });
+
+  const industryLabels = Object.keys(industries);
+  const industryData = Object.values(industries);
+
+  const regionLabels = Object.keys(regions);
+  const regionData = Object.values(regions);
+
+  const newClientsThisYear = clients.filter((client) => {
+    const currentYear = new Date().getFullYear();
+    return 2;
+  }).length;
+
+  const lineData: ChartData<"line"> = {
+    labels: [
+      "Enero",
+      "Febrero",
+      "Marzo",
+      "Abril",
+      "Mayo",
+      "Junio",
+      "Julio",
+      "Agosto",
+      "Septiembre",
+      "Octubre",
+      "Noviembre",
+      "Diciembre",
+    ],
+    datasets: [
+      {
+        label: "Ventas 2024 (en euros)",
+        data: monthlySalesData,
+        borderColor: "rgba(75, 192, 192, 1)",
+        backgroundColor: "rgba(75, 192, 192, 0.2)",
+        fill: true,
+      },
+    ],
+  };
+
+  const doughnutData1: ChartData<"doughnut"> = {
+    labels: industryLabels,
+    datasets: [
+      {
+        label: "Ventas por Industria",
+        data: industryData,
+        backgroundColor: [
+          "rgba(255, 99, 132, 0.6)",
+          "rgba(54, 162, 235, 0.6)",
+          "rgba(255, 206, 86, 0.6)",
+        ],
+        hoverBackgroundColor: [
+          "rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+        ],
+      },
+    ],
+  };
+
+  const doughnutData2: ChartData<"doughnut"> = {
+    labels: regionLabels,
+    datasets: [
+      {
+        label: "Ventas por Región",
+        data: regionData,
+        backgroundColor: [
+          "rgba(153, 102, 255, 0.6)",
+          "rgba(255, 159, 64, 0.6)",
+          "rgba(75, 192, 192, 0.6)",
+          "rgba(255, 99, 132, 0.6)",
+          "rgba(54, 162, 235, 0.6)",
+        ],
+        hoverBackgroundColor: [
+          "rgba(153, 102, 255, 1)",
+          "rgba(255, 159, 64, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+        ],
+      },
+    ],
+  };
+
+  const lineOptions: ChartOptions<"line"> = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        text: "Ventas Mensuales (2024)",
+      },
+    },
+  };
+
+  const doughnutOptions: ChartOptions<"doughnut"> = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        text: "Distribución de Ventas",
+      },
+    },
+  };
+
+  if (isSalesLoading || isClientsLoading) return <p>Loading dashboard...</p>;
+
   return (
     <div className="dashboard-wrapper">
       <Header name="Analitiks SPA - Dashboard de Ventas Chile" />
 
-      {/* Sección de valores importantes */}
+      {/* Key Metrics */}
       <div className="important-values">
         <div className="value-card">
           <h4 className="value-title">Ventas Mes Actual</h4>
-          <p className="value-number">$20.000.000 CLP</p>
+          <p className="value-number">
+            €{monthlySalesData[new Date().getMonth()].toFixed(2)}
+          </p>
         </div>
         <div className="value-card">
           <h4 className="value-title">Ventas Año Actual</h4>
-          <p className="value-number">$120.000.000 CLP</p>
+          <p className="value-number">€{totalSales.toFixed(2)}</p>
         </div>
         <div className="value-card">
           <h4 className="value-title">Número de Clientes</h4>
-          <p className="value-number">300</p>
+          <p className="value-number">{clients.length}</p>
         </div>
         <div className="value-card">
-          <h4 className="value-title">Clientes Nuevos Año Actual</h4>
-          <p className="value-number">45</p>
+          <h4 className="value-title">Nuevos Clientes Este Año</h4>
+          <p className="value-number">{newClientsThisYear}</p>
         </div>
       </div>
 

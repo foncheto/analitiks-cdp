@@ -153,7 +153,7 @@ const SalesPage = () => {
             <thead>
               <tr className="bg-gray-100">
                 <th className="border border-gray-300 px-4 py-2 text-left">
-                  Amount
+                  Amount (€)
                 </th>
                 <th className="border border-gray-300 px-4 py-2 text-left">
                   Date
@@ -171,7 +171,7 @@ const SalesPage = () => {
                 sales.map((sale) => (
                   <tr key={sale.id} className="even:bg-gray-50">
                     <td className="border border-gray-300 px-4 py-2 text-right">
-                      {sale.amount.toFixed(2)}
+                      €{sale.amount.toFixed(2)}
                     </td>
                     <td className="border border-gray-300 px-4 py-2 text-right">
                       {new Date(sale.date).toLocaleDateString()}

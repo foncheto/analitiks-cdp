@@ -41,6 +41,7 @@ const columns: GridColDef[] = [
   { field: "email", headerName: "Email", width: 200 },
   { field: "phone", headerName: "Phone", width: 150 },
   { field: "address", headerName: "Address", width: 250 },
+  { field: "region", headerName: "Region", width: 150 },
 ];
 
 const Clients = () => {
