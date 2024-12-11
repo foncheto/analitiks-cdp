@@ -19,5 +19,13 @@
     "startDate": "2023-03-05T00:00:00Z",
     "endDate": "2024-03-05T00:00:00Z",
     "clientId": 5
+  },
+  {
+    "name": "Sawu SPA",
+    "description": "Desarrollo de soluciones para las mediciones de los liquidos encargados de rainura y tambien de limpieza en los procesos de extraccion y transporte de material crudo",
+    "startDate": "2023-03-05T00:00:00Z",
+    "endDate": "2024-03-05T00:00:00Z",
+    "clientId": 46
   }
 ]
+

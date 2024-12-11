@@ -23,5 +23,10 @@
     "teamName": "Equipo de Recursos Humanos",
     "productOwnerUserId": 19,
     "projectManagerUserId": 10
+  },
+  {
+    "teamName": "Equipo de Instalacion",
+    "productOwnerUserId": 21,
+    "projectManagerUserId": 12
   }
 ]
