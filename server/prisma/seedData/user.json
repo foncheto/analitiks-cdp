@@ -1,18 +1,18 @@
 [
   {
-    "username": "AliceJones",
+    "username": "AlfredoMatus",
     "teamId": 1,
     "profilePictureUrl": "p1.jpeg",
     "cognitoId": "123e4567-e89b-12d3-a456-426614174001"
   },
   {
-    "username": "BobSmith",
+    "username": "SebastianAlfaro",
     "teamId": 2,
     "profilePictureUrl": "p2.jpeg",
     "cognitoId": "123e4567-e89b-12d3-a456-426614174002"
   },
   {
-    "username": "CarolWhite",
+    "username": "AlfonsoPinto",
     "teamId": 3,
     "profilePictureUrl": "p3.jpeg",
     "cognitoId": "123e4567-e89b-12d3-a456-426614174003"
