@@ -53,5 +53,35 @@
     "company": "Papelera Constitución S.A.",
     "clientId": null,
     "assignedTo": null
+  },
+  {
+    "name": "Jorge Ustariz Arandia",
+    "phone": "+59133674643",
+    "status": "new",
+    "source": "chatbot",
+    "notes": "",
+    "company": "Wellser SRL",
+    "clientId": null,
+    "assignedTo": null
+  },
+  {
+    "name": "Domingo Mackenna",
+    "phone": "+56940956573",
+    "status": "new",
+    "source": "chatbot",
+    "notes": "",
+    "company": "Aguas CCU-NESTLE",
+    "clientId": null,
+    "assignedTo": null
+  },
+  {
+    "name": "Ivan Acuña",
+    "phone": "+56904723337",
+    "status": "new",
+    "source": "chatbot",
+    "notes": "",
+    "company": "Compañía Minera Teck",
+    "clientId": null,
+    "assignedTo": null
   }
 ]
