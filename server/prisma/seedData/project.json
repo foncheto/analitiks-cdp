@@ -8,27 +8,27 @@
   },
   {
     "name": "Minera Centinela Revision",
-    "description": "Desarrollo de sistemas de navegación y monitoreo avanzados para mejorar la eficiencia y seguridad en los entornos de extracción y procesamiento de minerales.",
+    "description": "Desarrollo de sistemas de medicion regular y monitoreo avanzados para mejorar la eficiencia y seguridad en los entornos de extracción y procesamiento de minerales.",
     "startDate": "2023-02-01T00:00:00Z",
     "endDate": "2023-10-15T00:00:00Z",
     "clientId": 7
   },
   {
     "name": "Sierra Gorda SCM",
-    "description": "Proyecto enfocado en aumentar el uso de energía renovable, integrando sistemas de análisis en línea para la gestión eficiente del agua y la energía en procesos mineros.",
+    "description": "Proyecto enfocado en aumentar el numero de mediciones, integrando sistemas de análisis en línea para la gestión eficiente del agua y la energía en procesos mineros.",
     "startDate": "2023-03-05T00:00:00Z",
     "endDate": "2024-03-05T00:00:00Z",
     "clientId": 5
   },
   {
-    "name": "Sawu SPA",
+    "name": "cotizacion Sawu SPA",
     "description": "Desarrollo de soluciones para las mediciones de los liquidos encargados de rainura y tambien de limpieza en los procesos de extraccion y transporte de material crudo",
     "startDate": "2023-03-05T00:00:00Z",
     "endDate": "2024-03-05T00:00:00Z",
     "clientId": 46
   },
   {
-    "name": "Anglo American Sur",
+    "name": "Anglo American Sur nueva central",
     "description": "Creacion de medidas para poder crear mediciones un nueva seccion de la planta de procesamiento en 'el soldado' para complementar la planta actual",
     "startDate": "2023-03-05T00:00:00Z",
     "endDate": "2024-03-05T00:00:00Z",
