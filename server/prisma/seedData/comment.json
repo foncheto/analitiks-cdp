@@ -1,152 +1,86 @@
 [
   {
     "id": 1,
-    "text": "We need to update this design to include new specifications.",
+    "text": "Arreglar la cotizacion",
     "taskId": 1,
     "userId": 2
   },
   {
     "id": 2,
-    "text": "Can we meet to discuss the navigation algorithm updates?",
+    "text": "generar los permisos de instalacion",
     "taskId": 1,
     "userId": 4
   },
   {
     "id": 3,
-    "text": "This energy solution looks promising, but needs more research.",
+    "text": "comprar productos que no estan en stock",
     "taskId": 2,
     "userId": 6
   },
   {
     "id": 4,
-    "text": "Let's revise the software development workflow to include agile methodologies.",
+    "text": "Generar metricas.",
     "taskId": 2,
     "userId": 8
   },
   {
     "id": 5,
-    "text": "We should consider newer AI models for better accuracy.",
+    "text": "se deberia revisar el numero de monitores",
     "taskId": 3,
     "userId": 10
   },
   {
     "id": 6,
-    "text": "Product testing needs to be more rigorous.",
-    "taskId": 1,
+    "text": "crear dashboards",
+    "taskId": 6,
     "userId": 12
   },
   {
     "id": 7,
-    "text": "Optimization algorithms are not yet efficient.",
+    "text": "falta informacion aca",
     "taskId": 2,
     "userId": 14
   },
   {
     "id": 8,
-    "text": "Database overhaul could impact current operations negatively.",
-    "taskId": 2,
+    "text": "crear nuevas metricas!",
+    "taskId": 5,
     "userId": 16
   },
   {
     "id": 9,
-    "text": "Infrastructure upgrades must be done during low traffic hours.",
+    "text": "explicar de nuevo al cliente",
     "taskId": 2,
     "userId": 18
   },
   {
     "id": 10,
-    "text": "Security measures need to be enhanced to prevent data breaches.",
+    "text": "buscar nuevas opciones",
     "taskId": 2,
     "userId": 20
   },
   {
     "id": 11,
-    "text": "Consider using more robust training datasets for AI.",
-    "taskId": 1,
+    "text": "buscar ayuda con esto",
+    "taskId": 5,
     "userId": 1
   },
   {
     "id": 12,
-    "text": "Server security update meeting scheduled for next week.",
-    "taskId": 1,
+    "text": "agendar reunion con la empresa",
+    "taskId": 3,
     "userId": 2
   },
   {
     "id": 13,
-    "text": "UX redesign has been well received in initial user tests.",
+    "text": "nueva planificacion",
     "taskId": 2,
     "userId": 3
   },
   {
     "id": 14,
-    "text": "Data analytics implementation needs to account for real-time processing delays.",
-    "taskId": 3,
+    "text": "implementar dashboards.",
+    "taskId": 6,
     "userId": 4
-  },
-  {
-    "id": 15,
-    "text": "Encryption project needs to align with international security standards.",
-    "taskId": 1,
-    "userId": 5
-  },
-  {
-    "id": 16,
-    "text": "Review cloud storage optimization strategies in Q3 meeting.",
-    "taskId": 1,
-    "userId": 6
-  },
-  {
-    "id": 17,
-    "text": "Hardware compatibility tests to include newer device models.",
-    "taskId": 1,
-    "userId": 7
-  },
-  {
-    "id": 18,
-    "text": "Visualization tools to support both 2D and 3D data representations.",
-    "taskId": 1,
-    "userId": 8
-  },
-  {
-    "id": 19,
-    "text": "IoT device prototypes to undergo extensive field testing.",
-    "taskId": 3,
-    "userId": 9
-  },
-  {
-    "id": 20,
-    "text": "Legacy system upgrade to start with backend databases.",
-    "taskId": 3,
-    "userId": 10
-  },
-  {
-    "id": 21,
-    "text": "Network security framework should prioritize threat detection improvements.",
-    "taskId": 3,
-    "userId": 1
-  },
-  {
-    "id": 22,
-    "text": "Application deployment strategies to include Docker integration.",
-    "taskId": 3,
-    "userId": 2
-  },
-  {
-    "id": 23,
-    "text": "Market analysis should cover competitive product landscapes.",
-    "taskId": 2,
-    "userId": 3
-  },
-  {
-    "id": 24,
-    "text": "Feedback mechanisms to utilize adaptive questioning techniques.",
-    "taskId": 2,
-    "userId": 4
-  },
-  {
-    "id": 25,
-    "text": "API integration must ensure data privacy compliance.",
-    "taskId": 2,
-    "userId": 5
   }
 ]
