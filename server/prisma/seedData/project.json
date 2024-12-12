@@ -26,6 +26,13 @@
     "startDate": "2023-03-05T00:00:00Z",
     "endDate": "2024-03-05T00:00:00Z",
     "clientId": 46
+  },
+  {
+    "name": "Anglo American Sur",
+    "description": "Creacion de medidas para poder crear mediciones un nueva seccion de la planta de procesamiento en 'el soldado' para complementar la planta actual",
+    "startDate": "2023-03-05T00:00:00Z",
+    "endDate": "2024-03-05T00:00:00Z",
+    "clientId": 6
   }
 ]
 
