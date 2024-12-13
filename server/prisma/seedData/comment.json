@@ -9,55 +9,55 @@
     "id": 2,
     "text": "generar los permisos de instalacion",
     "taskId": 1,
-    "userId": 4
+    "userId": 3
   },
   {
     "id": 3,
     "text": "comprar productos que no estan en stock",
     "taskId": 2,
-    "userId": 6
+    "userId": 1
   },
   {
     "id": 4,
     "text": "Generar metricas.",
     "taskId": 2,
-    "userId": 8
+    "userId": 1
   },
   {
     "id": 5,
     "text": "se deberia revisar el numero de monitores",
     "taskId": 3,
-    "userId": 10
+    "userId": 1
   },
   {
     "id": 6,
     "text": "crear dashboards",
     "taskId": 6,
-    "userId": 12
+    "userId": 2
   },
   {
     "id": 7,
     "text": "falta informacion aca",
     "taskId": 2,
-    "userId": 14
+    "userId": 3
   },
   {
     "id": 8,
     "text": "crear nuevas metricas!",
     "taskId": 5,
-    "userId": 16
+    "userId": 1
   },
   {
     "id": 9,
     "text": "explicar de nuevo al cliente",
     "taskId": 2,
-    "userId": 18
+    "userId": 2
   },
   {
     "id": 10,
     "text": "buscar nuevas opciones",
     "taskId": 2,
-    "userId": 20
+    "userId": 2
   },
   {
     "id": 11,
@@ -81,6 +81,6 @@
     "id": 14,
     "text": "implementar dashboards.",
     "taskId": 6,
-    "userId": 4
+    "userId": 2
   }
 ]

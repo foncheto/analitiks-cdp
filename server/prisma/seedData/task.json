@@ -23,7 +23,7 @@
     "dueDate": "2023-06-01T00:00:00Z",
     "projectId": 1,
     "authorUserId": 1,
-    "assignedUserId": 2
+    "assignedUserId": 1
   },
   {
     "id": 3,
@@ -36,7 +36,7 @@
     "dueDate": "2023-08-15T00:00:00Z",
     "projectId": 1,
     "authorUserId": 1,
-    "assignedUserId": 3
+    "assignedUserId": 2
   },
   {
     "id": 4,
@@ -48,52 +48,52 @@
     "startDate": "2023-04-01T00:00:00Z",
     "dueDate": "2023-07-01T00:00:00Z",
     "projectId": 1,
-    "authorUserId": 2,
+    "authorUserId": 1,
     "assignedUserId": 2
   },
   {
     "id": 5,
     "title": "Tarea 1",
-    "description": "Implementar el algoritmo de navegación para mejorar la eficiencia en áreas de difícil acceso dentro de la planta de Minera Centinela.",
+    "description": "Implementar conexion de monitores para mejorar la eficiencia en áreas de difícil monitoreo dentro de la planta de Minera Centinela.",
     "status": "To Do",
     "priority": "High",
-    "tags": "Codificación",
+    "tags": "visualizacion",
     "startDate": "2023-01-15T00:00:00Z",
     "dueDate": "2023-05-15T00:00:00Z",
-    "projectId": 2,
-    "authorUserId": 1,
-    "assignedUserId": 1
-  },
-  {
-    "id": 6,
-    "title": "Tarea 2",
-    "description": "Desarrollar la interfaz gráfica para el sistema de monitoreo de fluidos, integrando visualización de datos y limites.",
-    "status": "Work In Progress",
-    "priority": "High",
-    "tags": "UI/UX",
-    "startDate": "2023-03-01T00:00:00Z",
-    "dueDate": "2023-06-01T00:00:00Z",
-    "projectId": 2,
-    "authorUserId": 1,
-    "assignedUserId": 1
-  },
-  {
-    "id": 7,
-    "title": "Tarea 3",
-    "description": "Optimizar el algoritmo de monitoreo para reducir tiempos de respuesta en áreas remotas de la planta.",
-    "status": "To Do",
-    "priority": "Medium",
-    "tags": "Optimización",
-    "startDate": "2023-04-01T00:00:00Z",
-    "dueDate": "2023-09-01T00:00:00Z",
     "projectId": 2,
     "authorUserId": 2,
     "assignedUserId": 1
   },
   {
+    "id": 6,
+    "title": "Tarea 2",
+    "description": "Desarrollar la interfaz para el sistema de monitoreo de fluidos, integrando visualización de datos y limites.",
+    "status": "Work In Progress",
+    "priority": "High",
+    "tags": "interfaces",
+    "startDate": "2023-03-01T00:00:00Z",
+    "dueDate": "2023-06-01T00:00:00Z",
+    "projectId": 2,
+    "authorUserId": 2,
+    "assignedUserId": 1
+  },
+  {
+    "id": 7,
+    "title": "Tarea 3",
+    "description": "crear planilla de capacitacion para que el personal vea los niveles correctamente",
+    "status": "To Do",
+    "priority": "Medium",
+    "tags": "capacitacion",
+    "startDate": "2023-04-01T00:00:00Z",
+    "dueDate": "2023-09-01T00:00:00Z",
+    "projectId": 2,
+    "authorUserId": 1,
+    "assignedUserId": 1
+  },
+  {
     "id": 8,
     "title": "Tarea 1",
-    "description": "Configurar sistema de respaldo de datos para asegurar la continuidad operativa del sistema de medicion.",
+    "description": "Configurar sistema de de datos para asegurar la continuidad operativa del sistema de medicion.",
     "status": "Under Review",
     "priority": "High",
     "tags": "Infraestructura",
@@ -101,32 +101,32 @@
     "dueDate": "2023-07-01T00:00:00Z",
     "projectId": 4,
     "authorUserId": 1,
-    "assignedUserId": 1
+    "assignedUserId": 2
   },
   {
     "id": 9,
-    "title": "Tarea 1",
-    "description": "Desarrollar soluciones de medicion, integrando mediciones en línea de consumo en Sierra Gorda SCM.",
+    "title": "Tarea 3",
+    "description": "Desarrollar e implementar soluciones de medicion,ajustando a los productos solicitados integrando mediciones en línea de consumo en Sierra Gorda SCM.",
     "status": "Work In Progress",
     "priority": "Urgente",
-    "tags": "Desarrollo",
+    "tags": "implementacion",
     "startDate": "2023-03-20T00:00:00Z",
     "dueDate": "2023-09-20T00:00:00Z",
     "projectId": 4,
-    "authorUserId": 2,
+    "authorUserId": 1,
     "assignedUserId": 2
   },
   {
     "id": 10,
     "title": "Tarea 1",
-    "description": "Instalar sensores de monitoreo de medicion de ph en puntos clave de la planta para medir impacto en tiempo real.",
+    "description": "Instalar sensores de monitoreo de medicion de ph en puntos clave de la planta de procesamiento de 'el soldado' para medir impacto en tiempo real.",
     "status": "To Do",
     "priority": "High",
     "tags": "Instalación",
     "startDate": "2023-04-01T00:00:00Z",
     "dueDate": "2023-07-01T00:00:00Z",
     "projectId": 5,
-    "authorUserId": 2,
+    "authorUserId": 1,
     "assignedUserId": 2
   },
   {
@@ -140,32 +140,32 @@
     "dueDate": "2023-10-01T00:00:00Z",
     "projectId": 4,
     "authorUserId": 2,
-    "assignedUserId": 2
+    "assignedUserId": 1
   },
   {
     "id": 12,
     "title": "Tarea 1",
-    "description": "Evaluar el impacto de las nuevas tuberias en la medicion y realizar ajustes necesarios en los procesos.",
+    "description": "Evaluar el impacto de las nuevas tuberias de la medicion y realizar ajustes necesarios en los procesos.",
     "status": "Under Review",
     "priority": "High",
     "tags": "Evaluación",
     "startDate": "2023-06-01T00:00:00Z",
     "dueDate": "2023-11-01T00:00:00Z",
     "projectId": 3,
-    "authorUserId": 2,
-    "assignedUserId": 1
+    "authorUserId": 1,
+    "assignedUserId": 2
   },
   {
     "id": 13,
-    "title": "Tarea 1",
-    "description": "Diferenciar entre los distintos productos de la gama de medicion de ph para poder ofrecer una medicion adecuada",
+    "title": "Tarea 2",
+    "description": "Diferenciar entre las operaciones anteriores y mostrar como funcionara en este sector al personal",
     "status": "Under Review",
     "priority": "Medium",
-    "tags": "Evaluación",
+    "tags": "capacitacion",
     "startDate": "2023-06-01T00:00:00Z",
     "dueDate": "2023-11-01T00:00:00Z",
     "projectId": 5,
     "authorUserId": 1,
-    "assignedUserId": 2
+    "assignedUserId": 1
   }
 ]
