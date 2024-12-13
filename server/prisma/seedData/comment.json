@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "text": "Arreglar la cotizacion",
+    "text": "revisar el numero de medidores totales",
     "taskId": 1,
     "userId": 2
   },
@@ -13,8 +13,8 @@
   },
   {
     "id": 3,
-    "text": "comprar productos que no estan en stock",
-    "taskId": 2,
+    "text": "comparar diferentes opciones de monitores",
+    "taskId": 10,
     "userId": 6
   },
   {
@@ -25,7 +25,7 @@
   },
   {
     "id": 5,
-    "text": "se deberia revisar el numero de monitores",
+    "text": "se deberia revisar la calibracion mensualmente",
     "taskId": 3,
     "userId": 10
   },
@@ -37,8 +37,8 @@
   },
   {
     "id": 7,
-    "text": "falta informacion aca",
-    "taskId": 2,
+    "text": "falta informacion, definir que puntos son los mas criticos",
+    "taskId": 10,
     "userId": 14
   },
   {
@@ -50,12 +50,12 @@
   {
     "id": 9,
     "text": "explicar de nuevo al cliente",
-    "taskId": 2,
+    "taskId": 8,
     "userId": 18
   },
   {
     "id": 10,
-    "text": "buscar nuevas opciones",
+    "text": "buscar nuevas opciones como mejorarian el caso",
     "taskId": 2,
     "userId": 20
   },
@@ -73,8 +73,8 @@
   },
   {
     "id": 13,
-    "text": "nueva planificacion",
-    "taskId": 2,
+    "text": "agregar ph en el punto 5 de la planta",
+    "taskId": 4,
     "userId": 3
   },
   {
