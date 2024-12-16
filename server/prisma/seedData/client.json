@@ -5,7 +5,8 @@
     "email": "contact@celulosa.com",
     "phone": "+56223787638",
     "address": "Terciados Arauco Maderas ARAUCO, Planta Nueva Aldea",
-    "position": [-36.6630359, -72.4894278, 17]
+    "position": [-36.6630359, -72.4894278, 17],
+    "region": "Biobío"
   },
   {
     "companyName": "Sierra Gorda SCM",
@@ -13,7 +14,8 @@
     "email": "comunicaciones.externassg@sgscm.cl",
     "phone": "+1-555-5678",
     "address": "Comuna de Sierra Gorda, Región de Antofagasta",
-    "position": [-22.8900275, -69.3247153, 16]
+    "position": [-22.8900275, -69.3247153, 16],
+    "region": "Antofagasta"
   },
   {
     "companyName": "SQM Salar SA",
@@ -21,7 +23,8 @@
     "email": "contacto@sqm.com",
     "phone": "(2) 2425 2000",
     "address": "SQM Salar del Carmen",
-    "position": [-23.6469033, -70.3022664, 14]
+    "position": [-23.6469033, -70.3022664, 14],
+    "region": "Antofagasta"
   },
   {
     "companyName": "Minera Centinela",
@@ -29,7 +32,8 @@
     "email": "contacto@minera.com",
     "phone": "(56-2) 2798 7000",
     "address": "minera cerca de, Centinela, Antofagasta, Sierra Gorda, Antofagasta",
-    "position": [-23.0093524, -69.0983729, 14]
+    "position": [-23.0093524, -69.0983729, 14],
+    "region": "Antofagasta"
   },
   {
     "companyName": "SQM Nitratos SA",
@@ -37,7 +41,8 @@
     "email": "contacto@sqm.com",
     "phone": "(2) 2425 2000",
     "address": "Faena Minera SQM Nueva Victoria",
-    "position": [-20.960347, -69.6661381, 17]
+    "position": [-20.960347, -69.6661381, 17],
+    "region": "Tarapacá"
   },
   {
     "companyName": "Anglo American Sur",
@@ -45,7 +50,8 @@
     "email": "marcela.riquelme@angloamerican.com",
     "phone": "+56222306000",
     "address": "Mina Los Bronces",
-    "position": [-33.1477692, -70.2890205, 17]
+    "position": [-33.1477692, -70.2890205, 17],
+    "region": "Metropolitana"
   },
   {
     "companyName": "Colbún SA",
@@ -53,7 +59,8 @@
     "email": "contact@colbun.com",
     "phone": "+56 2 2460 4000",
     "address": "Central Termoeléctrica Santa María",
-    "position": [-37.0414509, -73.1356594, 17]
+    "position": [-37.0414509, -73.1356594, 17],
+    "region": "Biobío"
   },
   {
     "companyName": "ENAP Refinerías SA",
@@ -61,7 +68,8 @@
     "email": "contact@enap.com",
     "phone": "(2) 2280 3000",
     "address": "ENAP Aconcagua",
-    "position": [-32.9229155, -71.5083459, 17]
+    "position": [-32.9229155, -71.5083459, 17],
+    "region": "Valparaíso"
   },
   {
     "companyName": "Compañía Minera Teck Quebrada Blanca S.A.",
@@ -69,7 +77,8 @@
     "email": "contacto@teck.com",
     "phone": "9 5840 8186",
     "address": "Minera Teck Andacollo",
-    "position": [-30.2582623, -71.09575, 15]
+    "position": [-30.2582623, -71.09575, 15],
+    "region": "Coquimbo"
   },
   {
     "companyName": "Coexca SA",
@@ -77,7 +86,8 @@
     "email": "contacto@34.229.163.34",
     "phone": "+56-71-2631-919",
     "address": "Longitudinal Sur Km. 259, Talca, Maule",
-    "position": [-35.4568386, -71.6505149, 17]
+    "position": [-35.4568386, -71.6505149, 17],
+    "region": "Maule"
   },
   {
     "companyName": "Orafti Chile SA",
@@ -85,7 +95,8 @@
     "email": "contacto@orafti.com",
     "phone": "(42) 245 8000",
     "address": "Pemuco, 3910000 Chillán, Pemuco, Ñuble",
-    "position": [-36.9771977, -72.1008877]
+    "position": [-36.9771977, -72.1008877],
+    "region": "Ñuble"
   },
   {
     "companyName": "Voens SPA",
@@ -93,7 +104,8 @@
     "email": "contacto@voens.com",
     "phone": "+56 9 7519 4348",
     "address": "Los Peumos chicureo Colina, 9360935, Región Metropolitana",
-    "position": [-33.2549494, -70.7168904, 15]
+    "position": [-33.2549494, -70.7168904, 15],
+    "region": "Metropolitana"
   },
   {
     "companyName": "Dacsi LTDA",
@@ -101,7 +113,8 @@
     "email": "dacsi@dacsi.cl",
     "phone": "2 2281 9380",
     "address": "Patricio Lynch 9463, 8000110 La Cisterna, Región Metropolitana",
-    "position": [-33.5474669, -70.6567974]
+    "position": [-33.5474669, -70.6567974],
+    "region": "Metropolitana"
   },
   {
     "companyName": "AES Gener Ventanas",
@@ -109,7 +122,8 @@
     "email": "contacto@aesgener.com",
     "phone": "(2) 2686 8900",
     "address": "Las Ventanas Puchuncavi, Puchuncaví Valparaíso",
-    "position": [-32.742017, -71.4948879, 15]
+    "position": [-32.742017, -71.4948879, 15],
+    "region": "Valparaíso"
   },
   {
     "companyName": "Vigaflow SA",
@@ -117,7 +131,8 @@
     "email": "info@vigaflow.com",
     "phone": "(2) 2797 0350",
     "address": "Ramón Freire, Lote 47, Barrio Industrial Los Libertadores, Colina",
-    "position": [-33.3061234, -70.731638, 14]
+    "position": [-33.3061234, -70.731638, 14],
+    "region": "Metropolitana"
   },
   {
     "companyName": "ABControl LTDA",
@@ -125,7 +140,8 @@
     "email": "contacto@abcontrol.com",
     "phone": "(2) 2231 7905",
     "address": "Avenida Illanes 385, Rancagua",
-    "position": [-34.1621779, -70.7365206, 17]
+    "position": [-34.1621779, -70.7365206, 17],
+    "region": "O'Higgins"
   },
   {
     "companyName": "Patagoniafresh SA Planta Molina",
@@ -133,7 +149,8 @@
     "email": "contacto@empresasiansa.cl",
     "phone": "9 3233 0365",
     "address": "Carr. Panamericana Sur 205, Molina, Maule",
-    "position": [-35.0946253, -71.3165015]
+    "position": [-35.0946253, -71.3165015],
+    "region": "Maule"
   },
   {
     "companyName": "Wellser SRL",
@@ -141,7 +158,8 @@
     "email": "info@wellser.net",
     "phone": "+591 3 3542212",
     "address": "Santa Cruz de la Sierra, Bolivia",
-    "position": [-17.798072, -63.1925079]
+    "position": [-17.798072, -63.1925079],
+    "region": "Bolivia"
   },
   {
     "companyName": "Patagoniafresh SA Planta San Fernando",
@@ -149,7 +167,8 @@
     "email": "contacto@empresasiansa.cl",
     "phone": "9 4756 5348",
     "address": "Carr. Panamericana Sur 2013, 3070018 San Fernando, O'Higgins",
-    "position": [-34.5723843, -70.9722702]
+    "position": [-34.5723843, -70.9722702],
+    "region": "O'Higgins"
   },
   {
     "companyName": "CMPC Pulp s.a",
@@ -157,7 +176,8 @@
     "email": "correo@cmpc.cl",
     "phone": "+56224412030",
     "address": "planta santa fe cmpc",
-    "position": [-37.3959188, -72.8497831, 11]
+    "position": [-37.3959188, -72.8497831, 11],
+    "region": "Biobío"
   },
   {
     "companyName": "Emeltec spa",
@@ -165,7 +185,8 @@
     "email": "ventas@emeltec.cl",
     "phone": "(2) 2307 0060",
     "address": " Del Valle 576, Oficina 505, Huechuraba, Región Metropolitana",
-    "position": [-33.3943856, -70.6196845, 17]
+    "position": [-33.3943856, -70.6196845, 17],
+    "region": "Metropolitana"
   },
   {
     "companyName": "compañia minera teck quebrada blanca s.a",
@@ -173,7 +194,8 @@
     "email": "TAIIndChem@teck.com",
     "phone": "9 5840 8186",
     "address": "Esmeralda 340, 1100324 Iquique, Tarapacá",
-    "position": [-20.211354, -70.1539586, 17]
+    "position": [-20.211354, -70.1539586, 17],
+    "region": "Tarapacá"
   },
   {
     "companyName": "Aguas CCU-NESTLE",
@@ -181,7 +203,8 @@
     "email": "contacto@ccu.com",
     "phone": "(56-2) 2427 3000",
     "address": "Aguas CCU Nestle Chile",
-    "position": [-33.4112937, -70.6824136, 17]
+    "position": [-33.4112937, -70.6824136, 17],
+    "region": "Metropolitana"
   },
   {
     "companyName": "Instruvalve Ltda.",
@@ -189,7 +212,8 @@
     "email": "david.portilla@instruvalve.com",
     "phone": "+56 2 2238 5464",
     "address": "Gral Freire 725, 7980181 La Cisterna, Región Metropolitana",
-    "position": [-33.522457, -70.6539845, 17]
+    "position": [-33.522457, -70.6539845, 17],
+    "region": "Metropolitana"
   },
   {
     "companyName": "Compañia papelera del pacífico",
@@ -197,7 +221,8 @@
     "email": "contacto@cpp.com",
     "phone": "(72) 220 8102",
     "address": "Longitudinal Sur, km. 63, San Francisco de Mostazal, O'Higgins",
-    "position": [-33.9832733, -70.7030498, 17]
+    "position": [-33.9832733, -70.7030498, 17],
+    "region": "O'Higgins"
   },
   {
     "companyName": "Soltex",
@@ -205,7 +230,8 @@
     "email": "central@soltex.cl",
     "phone": "+56(2) 2730 4700",
     "address": "Víctor Uribe 2260, 8710020 Quilicura, Región Metropolitana",
-    "position": [-33.3556577, -70.6979124, 17]
+    "position": [-33.3556577, -70.6979124, 17],
+    "region": "Metropolitana"
   },
   {
     "companyName": "Quiborax",
@@ -213,7 +239,8 @@
     "email": "contacto@quiborax.com",
     "phone": "(58) 259 4000",
     "address": "Barros Arana 2730, 1020036 Arica, Arica y Parinacota",
-    "position": [-18.4650058, -70.2970651, 17]
+    "position": [-18.4650058, -70.2970651, 17],
+    "region": "Arica y Parinacota"
   },
   {
     "companyName": "Compañía Minera Zaldívar",
@@ -221,7 +248,8 @@
     "email": "contacto@zandivar.com",
     "phone": "9 7797 9522",
     "address": "Av. Grecia 750, Antofagasta",
-    "position": [-23.6670745, -70.4080502, 17]
+    "position": [-23.6670745, -70.4080502, 17],
+    "region": "Antofagasta"
   },
   {
     "companyName": "New Tech Copper",
@@ -229,7 +257,8 @@
     "email": "gerencia@ntc.cl",
     "phone": "(+56 2) 2783 2610",
     "address": "Exequiel Fernández 3397, 7821207 Macul, Región Metropolitana",
-    "position": [-33.4853122, -70.604375, 17]
+    "position": [-33.4853122, -70.604375, 17],
+    "region": "Metropolitana"
   },
   {
     "companyName": "Comafri s.a",
@@ -237,7 +266,8 @@
     "email": "info@aasa.cl",
     "phone": "+56 2 2589 5600",
     "address": "Avenida, Av. Libertador Gral. Bernardo O'Higgins 1370, Rancagua, O'Higgins",
-    "position": [-34.1625551, -70.7572453, 17]
+    "position": [-34.1625551, -70.7572453, 17],
+    "region": "O'Higgins"
   },
   {
     "companyName": "Wellser SRL",
@@ -245,7 +275,8 @@
     "email": "info@wellser.net",
     "phone": "+591 3 3542212",
     "address": "Santa Cruz de la Sierra, Bolivia",
-    "position": [-17.7567133, -63.3413025, 10]
+    "position": [-17.7567133, -63.3413025, 10],
+    "region": "Bolivia"
   },
   {
     "companyName": "Tecnasic",
@@ -253,7 +284,8 @@
     "email": "mail@tecnasic.cl",
     "phone": "+56 248 338 00",
     "address": "Carlos Justiniano 1161, Providencia, Santiago",
-    "position": [-33.4379848, -70.620337, 17]
+    "position": [-33.4379848, -70.620337, 17],
+    "region": "Metropolitana"
   },
   {
     "companyName": "Cervecera CCU Chile",
@@ -261,7 +293,8 @@
     "email": "contacto@ccu.com",
     "phone": " (2) 2623 2181",
     "address": " Av. Pdte. Eduardo Frei Montalva 8500, Quilicura, Región Metropolitana",
-    "position": [-33.3546981, -70.7085204, 17]
+    "position": [-33.3546981, -70.7085204, 17],
+    "region": "Metropolitana"
   },
   {
     "companyName": "Curtiembre Rufino Melero",
@@ -269,7 +302,8 @@
     "email": "fmelero@melero.cl",
     "phone": "+56 2 24113270",
     "address": "Ruta 5 S Curicó, 3340000 Maule",
-    "position": [-30.7779442, -71.5570935, 17]
+    "position": [-30.7779442, -71.5570935, 17],
+    "region": "Maule"
   },
   {
     "companyName": "Difem s.a",
@@ -277,7 +311,8 @@
     "email": "hablemos@difem.cl",
     "phone": "+562 2210 7400",
     "address": "Los Herreros 8708, 7880030 La Reina, Región Metropolitana",
-    "position": [-33.4565082, -70.5451744, 17]
+    "position": [-33.4565082, -70.5451744, 17],
+    "region": "Metropolitana"
   },
   {
     "companyName": "cerveceria chile s.a",
@@ -285,7 +320,8 @@
     "email": "contacto@abinbev.cl",
     "phone": "(2) 2623 8515",
     "address": "Av. Pdte. Eduardo Frei Montalva 9600, 8720035 Quilicura, Región Metropolitana",
-    "position": [-33.3365542, -70.7166513, 17]
+    "position": [-33.3365542, -70.7166513, 17],
+    "region": "Metropolitana"
   },
   {
     "companyName": "Miq Ltda",
@@ -293,7 +329,8 @@
     "email": "contacto@miq.cl",
     "phone": "(2) 2652 9600",
     "address": "La Pastora 192, 7550084 Las Condes, Región Metropolitana",
-    "position": [-33.4136461, -70.5990664, 17]
+    "position": [-33.4136461, -70.5990664, 17],
+    "region": "Metropolitana"
   },
   {
     "companyName": "Novofish",
@@ -301,7 +338,8 @@
     "email": "comunidad@novofish.cl",
     "phone": "+56 9 32333321",
     "address": "Ruta V-811 km 2.8 Camino a San Agustín-Huelmo, Puerto Montt",
-    "position": [-41.6544099, -73.0739329, 14]
+    "position": [-41.6544099, -73.0739329, 14],
+    "region": "Los Lagos"
   },
   {
     "companyName": "RWL Water Perú",
@@ -309,7 +347,8 @@
     "email": "contacto@rwl.pe",
     "phone": "+51 979 223 977",
     "address": "Av. Club Golf los Incas 134, Santiago de Surco 15023, Perú",
-    "position": [-12.0827679, -76.9712612, 17]
+    "position": [-12.0827679, -76.9712612, 17],
+    "region": "Perú"
   },
   {
     "companyName": "Hidroservi",
@@ -317,7 +356,8 @@
     "email": "logistica@hidroservi.cl",
     "phone": "+56 9 4560 5599",
     "address": "Francia 957, 7970456 La Cisterna, Región Metropolitana",
-    "position": [-33.5283733, -70.6773534, 17]
+    "position": [-33.5283733, -70.6773534, 17],
+    "region": "Metropolitana"
   },
   {
     "companyName": "Cementos Bío bío s.a.",
@@ -325,7 +365,8 @@
     "email": "inversionistas@cbb.cl",
     "phone": " 800 720 720",
     "address": "Av. Gran Bretaña 1725, Talcahuano, Región del Bío Bío, Chile.",
-    "position": [-36.7413451, -73.1218924, 17]
+    "position": [-36.7413451, -73.1218924, 17],
+    "region": "Biobío"
   },
   {
     "companyName": "Biodiversa s.a",
@@ -333,7 +374,8 @@
     "email": "contacto@biodiversa.com",
     "phone": "+56 9 5009 3505",
     "address": "22 Nte. 1150, 2530019 Valparaíso, Viña del Mar, Valparaíso",
-    "position": [-33.0026781, -71.546293, 17]
+    "position": [-33.0026781, -71.546293, 17],
+    "region": "Valparaíso"
   },
   {
     "companyName": "Galdames spa",
@@ -341,7 +383,8 @@
     "email": "Ing@galdames.cl",
     "phone": "+(56) 9 8209 6063",
     "address": "Avenida lonquen sur #5500, parcela 9, Talagante",
-    "position": [-33.6560771, -70.9356312, 12]
+    "position": [-33.6560771, -70.9356312, 12],
+    "region": "Metropolitana"
   },
   {
     "companyName": "Termodinamica ltda.",
@@ -349,7 +392,8 @@
     "email": "contacto@termodinamica.cl",
     "phone": "(56) 9 5092 7586",
     "address": "Av. Pdte. Eduardo Frei Montalva 18900, Lampa, Región Metropolitana",
-    "position": [-33.2955865, -70.7359839, 17]
+    "position": [-33.2955865, -70.7359839, 17],
+    "region": "Metropolitana"
   },
   {
     "companyName": "Albemarle ltda.",
@@ -357,7 +401,8 @@
     "email": "Natalia.Diaz@albemarle.com",
     "phone": "800-914-012",
     "address": "Avenida Héctor Gómez Cobo N°975, lote 4, Antofagasta, Chile.",
-    "position": [-23.7426215, -70.3050958, 17]
+    "position": [-23.7426215, -70.3050958, 17],
+    "region": "Antofagasta"
   },
   {
     "companyName": "SAWU SpA",
@@ -365,7 +410,8 @@
     "email": "sawuspa@contacto.com",
     "phone": "(57) 240 4000",
     "address": "San Martín 255, 1100488 Iquique, Tarapacá",
-    "position": [-20.2126779, -70.1550835, 17]
+    "position": [-20.2126779, -70.1550835, 17],
+    "region": "Tarapacá"
   },
   {
     "companyName": "EKA Chile S.A.",
@@ -373,7 +419,8 @@
     "email": "eka@contacto.com",
     "phone": "412129202",
     "address": "Av. Rocoto 2911, Talcahuano, Región del Bio-bío",
-    "position": [-36.7632776, -73.1300749, 17]
+    "position": [-36.7632776, -73.1300749, 17],
+    "region": "Biobío"
   },
   {
     "companyName": "Valle Leyda SpA",
@@ -381,7 +428,8 @@
     "email": "leyda@contacto.com",
     "phone": "942784048",
     "address": "G-818 1000, San Antonio, Valparaíso",
-    "position": [-33.6551233, -71.5522817, 13]
+    "position": [-33.6551233, -71.5522817, 13],
+    "region": "Valparaíso"
   },
   {
     "companyName": "TecnoAguas",
@@ -389,7 +437,8 @@
     "email": "tecnoaguas@contact.cl",
     "phone": "(2) 2200 0069",
     "address": "Av. Providencia 701, 7500667 Providencia, Región Metropolitana",
-    "position": [-33.4331064, -70.6282483, 17]
+    "position": [-33.4331064, -70.6282483, 17],
+    "region": "Metropolitana"
   },
   {
     "companyName": "Minera Escondida",
@@ -397,7 +446,8 @@
     "email": "escondida@contacto.com",
     "phone": "977747694",
     "address": "BHP Minera Escondida",
-    "position": [-24.2707363, -69.0903506, 15]
+    "position": [-24.2707363, -69.0903506, 15],
+    "region": "Antofagasta"
   },
   {
     "companyName": "Tak S.a.",
@@ -405,7 +455,8 @@
     "email": "tak@contacto.com",
     "phone": "(71) 263 1919",
     "address": "3490000, San Rafael, Maule",
-    "position": [-35.3079261, -71.5430869, 14]
+    "position": [-35.3079261, -71.5430869, 14],
+    "region": "Maule"
   },
   {
     "companyName": "Insole",
@@ -413,7 +464,8 @@
     "email": "hrocha@insole.com",
     "phone": "990892537",
     "address": "Santiago de Chile",
-    "position": [-33.4963907, -70.9111188, 10]
+    "position": [-33.4963907, -70.9111188, 10],
+    "region": "Metropolitana"
   },
   {
     "companyName": "Empresasat S.A.",
@@ -421,7 +473,8 @@
     "email": "empresasat@contact.com",
     "phone": "935864222",
     "address": "Santiago de Chile",
-    "position": [-33.4963907, -70.9111188, 10]
+    "position": [-33.4963907, -70.9111188, 10],
+    "region": "Metropolitana"
   },
   {
     "companyName": "Link Automation Chile",
@@ -429,7 +482,8 @@
     "email": "linkautomtion@contact.com",
     "phone": "(2) 2223 5660",
     "address": "7510724 Providencia, Región Metropolitana",
-    "position": [-33.4320288, -70.5934267, 17]
+    "position": [-33.4320288, -70.5934267, 17],
+    "region": "Metropolitana"
   },
   {
     "companyName": "Cerveceria Chile S.A.",
@@ -437,7 +491,8 @@
     "email": "chilecerveceria@contact.com",
     "phone": "955675040",
     "address": "Av. Pdte. Eduardo Frei Montalva 9600, 8720035 Quilicura, Región Metropolitana",
-    "position": [-33.3365542, -70.7166513, 17]
+    "position": [-33.3365542, -70.7166513, 17],
+    "region": "Metropolitana"
   },
   {
     "companyName": "Empresa Eléctrica Ventanas S.A.",
@@ -445,7 +500,8 @@
     "email": "EEV@contact.com",
     "phone": "2 75658035",
     "address": "Mariano Sánchez Fontecilla 310, 7550285 Las Condes, Región Metropolitana",
-    "position": [-33.4199761, -70.6009659, 17]
+    "position": [-33.4199761, -70.6009659, 17],
+    "region": "Metropolitana"
   },
   {
     "companyName": "Comercializadora innova mobel spa",
@@ -453,7 +509,8 @@
     "email": "innovamobel@contact.com",
     "phone": "980543240",
     "address": "Avenida Italia 1862 Ñuñoa, Santiago, Chile",
-    "position": [-33.4514276, -70.6259775, 17]
+    "position": [-33.4514276, -70.6259775, 17],
+    "region": "Metropolitana"
   },
   {
     "companyName": "Kallpa Generación",
@@ -461,7 +518,8 @@
     "email": "kallpa@contact.com",
     "phone": "+51 1 7067878",
     "address": "Calle Las Palmeras 435, piso 7 San Isidro, LIMA 27, Perú",
-    "position": [-12.0941503, -77.0395379, 18]
+    "position": [-12.0941503, -77.0395379, 18],
+    "region": "Perú"
   },
   {
     "companyName": "CIMCO Ltda.",
@@ -469,7 +527,8 @@
     "email": "cimco@contact.com",
     "phone": "+591 4 4720696",
     "address": "AV. CHAPARE KM. 5, S/N (bajando 2 cuadras, Cochabamba, Bolivia",
-    "position": [-17.3941176, -66.104788, 17]
+    "position": [-17.3941176, -66.104788, 17],
+    "region": "Bolivia"
   },
   {
     "companyName": "Comercial MPI Ltda.",
@@ -477,6 +536,7 @@
     "email": "contacto@mpi.cl",
     "phone": "976944032",
     "address": "Concha y Toro 07, Santiago Centro",
-    "position": [-33.4466245, -70.6682103, 17]
+    "position": [-33.4466245, -70.6682103, 17],
+    "region": "Metropolitana"
   }
 ]

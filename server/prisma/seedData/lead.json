@@ -83,5 +83,15 @@
     "company": "Compañía Minera Teck",
     "clientId": null,
     "assignedTo": null
+  },
+  {
+    "name": "Ricardo Hormazabal",
+    "phone": "+56955723268",
+    "status": "new",
+    "source": "chatbot",
+    "notes": "",
+    "company": "Hidroservi",
+    "clientId": null,
+    "assignedTo": null
   }
 ]

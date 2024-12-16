@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Line, Doughnut } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -16,7 +16,9 @@ import {
   ChartOptions,
 } from "chart.js";
 import Header from "@/components/Header";
+import { useGetSalesQuery, useGetClientsQuery } from "@/state/api";
 
+// Register necessary Chart.js components
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -28,95 +30,42 @@ ChartJS.register(
   ArcElement,
 );
 
-const lineData: ChartData<"line"> = {
-  labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo"],
-  datasets: [
-    {
-      label: "Ventas 2024 (en millones CLP)",
-      data: [120, 140, 180, 90, 200],
-      borderColor: "rgba(75, 192, 192, 1)",
-      backgroundColor: "rgba(75, 192, 192, 0.2)",
-      fill: true,
-    },
-  ],
-};
-
-const lineOptions: ChartOptions<"line"> = {
-  responsive: true,
-  maintainAspectRatio: false,
-  plugins: {
-    legend: {
-      position: "top",
-    },
-    title: {
-      display: true,
-      text: "Ventas Mensuales (2024)",
-    },
-  },
-};
-
-// Datos de regiones e industrias
-const dataBySegment = {
-  All: {
-    labels: [
-      "Región Metropolitana",
-      "Región de Antofagasta",
-      "Región de Valparaíso",
-      "Región del Biobío",
-      "Región de Los Lagos",
-    ],
-    data: [500, 300, 200, 150, 100],
-  },
-  Corporate: {
-    labels: [
-      "Región Metropolitana",
-      "Región de Coquimbo",
-      "Región de Magallanes",
-    ],
-    data: [400, 250, 150],
-  },
-  Individual: {
-    labels: ["Región del Maule", "Región de Ñuble", "Región de Atacama"],
-    data: [200, 180, 100],
-  },
-  Government: {
-    labels: [
-      "Región de Tarapacá",
-      "Región de Aysén",
-      "Región de Arica y Parinacota",
-    ],
-    data: [300, 150, 120],
-  },
-};
-
-const doughnutOptions: ChartOptions<"doughnut"> = {
-  responsive: true,
-  maintainAspectRatio: false,
-  plugins: {
-    legend: {
-      position: "top",
-    },
-    title: {
-      display: true,
-      text: "Distribución de Ventas",
-    },
-  },
-};
-
 const Segments: React.FC = () => {
-  const [selectedSegment, setSelectedSegment] =
-    useState<keyof typeof dataBySegment>("All");
+  const { data: sales = [], isLoading: isSalesLoading } = useGetSalesQuery();
+  const { data: clients = [], isLoading: isClientsLoading } =
+    useGetClientsQuery();
 
-  const handleSegmentChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedSegment(e.target.value as keyof typeof dataBySegment);
-  };
+  // Calculate metrics
+  const totalSales = sales.reduce((acc, sale) => acc + sale.amount, 0);
 
-  const doughnutData: ChartData<"doughnut"> = {
-    labels: dataBySegment[selectedSegment].labels,
+  const regions: { [key: string]: number } = {};
+  const industries: { [key: string]: number } = {};
+
+  sales.forEach((sale) => {
+    const client = clients.find((client) => client.id === sale.clientId);
+    if (client) {
+      const { region, industry } = client;
+      if (region) {
+        regions[region] = (regions[region] || 0) + sale.amount;
+      }
+      if (industry) {
+        industries[industry] = (industries[industry] || 0) + sale.amount;
+      }
+    }
+  });
+
+  const regionLabels = Object.keys(regions);
+  const regionData = Object.values(regions);
+
+  const industryLabels = Object.keys(industries);
+  const industryData = Object.values(industries);
+
+  const doughnutData1: ChartData<"doughnut"> = {
+    labels: regionLabels,
     datasets: [
       {
-        label: `Ventas - ${selectedSegment}`,
-        data: dataBySegment[selectedSegment].data,
+        label: "Ventas por Región",
+        data: regionData,
         backgroundColor: [
           "rgba(153, 102, 255, 0.6)",
           "rgba(255, 159, 64, 0.6)",
@@ -135,57 +84,75 @@ const Segments: React.FC = () => {
     ],
   };
 
+  const doughnutData2: ChartData<"doughnut"> = {
+    labels: industryLabels,
+    datasets: [
+      {
+        label: "Ventas por Industria",
+        data: industryData,
+        backgroundColor: [
+          "rgba(255, 99, 132, 0.6)",
+          "rgba(54, 162, 235, 0.6)",
+          "rgba(255, 206, 86, 0.6)",
+        ],
+        hoverBackgroundColor: [
+          "rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+        ],
+      },
+    ],
+  };
+
+  const doughnutOptions: ChartOptions<"doughnut"> = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        text: "Distribución de Ventas",
+      },
+    },
+  };
+
+  if (isSalesLoading || isClientsLoading) return <p>Loading dashboard...</p>;
+
   return (
     <div className="dashboard-wrapper">
-      <Header name="Analitiks SPA - Dashboard de Ventas Chile" />
+      <Header name="Analitiks SPA - Dashboard de Segmentos" />
 
-      {/* Client Segment Selection */}
-      <div className="segment-selection">
-        <label htmlFor="client-segment">Selecciona un segmento:</label>
-        <select
-          id="client-segment"
-          value={selectedSegment}
-          onChange={handleSegmentChange}
-        >
-          <option value="All">Todos los Clientes</option>
-          <option value="Corporate">Corporativo</option>
-          <option value="Individual">Individual</option>
-          <option value="Government">Gobierno</option>
-        </select>
-      </div>
-
-      {/* Sección de valores importantes */}
+      {/* Key Metrics */}
       <div className="important-values">
         <div className="value-card">
-          <h4 className="value-title">Ventas Mes Actual</h4>
-          <p className="value-number">$20.000.000 CLP</p>
-        </div>
-        <div className="value-card">
           <h4 className="value-title">Ventas Año Actual</h4>
-          <p className="value-number">$120.000.000 CLP</p>
+          <p className="value-number">${totalSales.toFixed(2)} CLP</p>
         </div>
         <div className="value-card">
-          <h4 className="value-title">Número de Clientes</h4>
-          <p className="value-number">300</p>
+          <h4 className="value-title">Número de Regiones</h4>
+          <p className="value-number">{regionLabels.length}</p>
         </div>
         <div className="value-card">
-          <h4 className="value-title">Clientes Nuevos Año Actual</h4>
-          <p className="value-number">45</p>
+          <h4 className="value-title">Número de Industrias</h4>
+          <p className="value-number">{industryLabels.length}</p>
         </div>
       </div>
 
+      {/* Charts */}
       <div className="dashboard-grid">
-        <div className="chart-card chart-full-width">
-          <h3 className="chart-title">Ventas mensuales Año Actual</h3>
-          <div className="chart-container line-chart">
-            <Line data={lineData} options={lineOptions} />
+        <div className="chart-card">
+          <h3 className="chart-title">Distribución de Ventas por Región</h3>
+          <div className="chart-container doughnut-chart">
+            <Doughnut data={doughnutData1} options={doughnutOptions} />
           </div>
         </div>
 
         <div className="chart-card">
-          <h3 className="chart-title">Distribución de Ventas por Segmento</h3>
+          <h3 className="chart-title">Distribución de Ventas por Industria</h3>
           <div className="chart-container doughnut-chart">
-            <Doughnut data={doughnutData} options={doughnutOptions} />
+            <Doughnut data={doughnutData2} options={doughnutOptions} />
           </div>
         </div>
       </div>
@@ -200,7 +167,7 @@ const Segments: React.FC = () => {
 
         .important-values {
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
+          grid-template-columns: repeat(3, 1fr);
           gap: 20px;
           margin-bottom: 20px;
         }
@@ -227,7 +194,7 @@ const Segments: React.FC = () => {
 
         .dashboard-grid {
           display: grid;
-          grid-template-columns: 1fr;
+          grid-template-columns: 1fr 1fr;
           gap: 20px;
         }
 
@@ -236,11 +203,6 @@ const Segments: React.FC = () => {
           border-radius: 8px;
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
           padding: 20px;
-          transition: transform 0.2s;
-        }
-
-        .chart-card:hover {
-          transform: scale(1.02);
         }
 
         .chart-title {
@@ -256,46 +218,18 @@ const Segments: React.FC = () => {
           margin: 0 auto;
         }
 
-        .line-chart {
-          max-width: 800px;
-          height: 400px;
-        }
-
         .doughnut-chart {
           max-width: 350px;
           height: 300px;
         }
 
-        /* Layout en tablet y desktop */
-        @media (min-width: 768px) {
+        /* Responsive Design */
+        @media (max-width: 768px) {
           .important-values {
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: 1fr;
           }
-
           .dashboard-grid {
-            grid-template-columns: 1fr 1fr;
-          }
-
-          .chart-full-width {
-            grid-column: span 2;
-          }
-        }
-
-        /* Layout y ajuste de gráficos para dispositivos móviles */
-        @media (max-width: 600px) {
-          .line-chart {
-            max-width: 100%;
-            height: 250px;
-          }
-
-          .doughnut-chart {
-            max-width: 100%;
-            height: 200px;
-          }
-
-          .important-values {
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            grid-template-columns: 1fr;
           }
         }
       `}</style>
